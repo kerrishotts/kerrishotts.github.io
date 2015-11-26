@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Soap on Kerri Shotts</title>
-    <link>http://kerrishotts.github.io/tags/soap/</link>
+    <link>//kerrishotts.github.io/tags/soap/</link>
     <description>Recent content in Soap on Kerri Shotts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
     <lastBuildDate>Tue, 25 Sep 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://kerrishotts.github.io/tags/soap/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//kerrishotts.github.io/tags/soap/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Using SOAP in a PhoneGap App</title>
-      <link>http://kerrishotts.github.io/post/2012/09/25/</link>
+      <link>//kerrishotts.github.io/post/2012/09/25/</link>
       <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://kerrishotts.github.io/post/2012/09/25/</guid>
+      <guid>//kerrishotts.github.io/post/2012/09/25/</guid>
       <description>&lt;p&gt;Yeah, yeah, so using SOAP is generally not the preferred solution when working from Javascript. It&amp;rsquo;s so much easier to handle data in JSON rather than in XML. But sometimes you can&amp;rsquo;t avoid it.&lt;/p&gt;
 
 &lt;p&gt;To help, I&amp;rsquo;ve &lt;em&gt;started&lt;/em&gt; a simple library that helps make our lives a &lt;em&gt;little&lt;/em&gt; bit easier. It&amp;rsquo;s nothing big yet, doesn&amp;rsquo;t validate the data yet, and surely has lots of bugs. In other words: &lt;em&gt;don&amp;rsquo;t use it for production&lt;/em&gt; without understanding the potential glitches. If the data you are sending to the server is likely to have &amp;ldquo;&amp;lt;&amp;rdquo; or &amp;ldquo;&amp;gt;&amp;rdquo;, be careful – the library will very likely barf. I&amp;rsquo;m sure there&amp;rsquo;s things I haven&amp;rsquo;t even started to consider.&lt;/p&gt;

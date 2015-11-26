@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Select on Kerri Shotts</title>
-    <link>http://kerrishotts.github.io/tags/select/</link>
+    <link>//kerrishotts.github.io/tags/select/</link>
     <description>Recent content in Select on Kerri Shotts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
     <lastBuildDate>Mon, 12 Nov 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://kerrishotts.github.io/tags/select/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//kerrishotts.github.io/tags/select/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>PhoneGap, SELECTs, and 3D transforms, oh my!</title>
-      <link>http://kerrishotts.github.io/post/quicktip/2012/11/12/</link>
+      <link>//kerrishotts.github.io/post/quicktip/2012/11/12/</link>
       <pubDate>Mon, 12 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://kerrishotts.github.io/post/quicktip/2012/11/12/</guid>
+      <guid>//kerrishotts.github.io/post/quicktip/2012/11/12/</guid>
       <description>&lt;p&gt;In an app for a client, I was having an odd problem: the SELECT box wasn&amp;rsquo;t tappable on Android 2.x. It worked great on iOS. It worked great on Android 4.x. But on 2.x, it just wouldn&amp;rsquo;t respond to input.&lt;/p&gt;
 
 &lt;p&gt;After a bit of frustrated debugging, I found this page after a Google search: &lt;a href=&#34;http://stackoverflow.com/questions/4523309/select-box-not-displaying-on-android-in-phonegap&#34;&gt;http://stackoverflow.com/questions/4523309/select-box-not-displaying-on-android-in-phonegap&lt;/a&gt;&lt;/p&gt;
