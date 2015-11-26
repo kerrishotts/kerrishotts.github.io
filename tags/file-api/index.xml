@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>File Api on Kerri Shotts</title>
+    <link>http://kerrishotts.github.io/tags/file-api/</link>
+    <description>Recent content in File Api on Kerri Shotts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
+    <lastBuildDate>Sat, 26 Oct 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://kerrishotts.github.io/tags/file-api/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using the File API without callbacks</title>
+      <link>http://kerrishotts.github.io/post/2013/10/26/</link>
+      <pubDate>Sat, 26 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://kerrishotts.github.io/post/2013/10/26/</guid>
+      <description>&lt;p&gt;So, it&amp;rsquo;s pretty much a given that working with the HTML5 API is a painful experience due to all those levels of callbacks. Even
+a simple operation turns into something unnecessarily complex, and so I present FileManager &amp;ndash; a simple wrapper around frequently
+used portions of the File API that uses Promises (or Q.js, specifically).&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s super easy to use, and while it&amp;rsquo;s officially part of the YASMF framework (&lt;a href=&#34;https://github.com/photokandyStudios/YASMF-Next&#34;&gt;https://github.com/photokandyStudios/YASMF-Next&lt;/a&gt;), it doesn&amp;rsquo;t depend on it outright (you can use the gist instead: &lt;a href=&#34;https://gist.github.com/kerrishotts/7147214&#34;&gt;https://gist.github.com/kerrishotts/7147214&lt;/a&gt;). It does require that Q.js be loaded prior to using it &amp;ndash; however you like doing that is up to you.&lt;/p&gt;
+
+&lt;p&gt;If you like to use Q.js/Promises, and use the File API a lot, you might just want to try it out.&lt;/p&gt;
+
+&lt;p&gt;Docs: &lt;a href=&#34;https://github.com/photokandyStudios/YASMF-Next/wiki/FileManager&#34;&gt;https://github.com/photokandyStudios/YASMF-Next/wiki/FileManager&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Github: &lt;a href=&#34;https://github.com/photokandyStudios/YASMF-Next/blob/master/lib/yasmf/util/fileManager.js&#34;&gt;https://github.com/photokandyStudios/YASMF-Next/blob/master/lib/yasmf/util/fileManager.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Gist (stand-alone): &lt;a href=&#34;https://gist.github.com/kerrishotts/7147214&#34;&gt;https://gist.github.com/kerrishotts/7147214&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As a quick example, here&amp;rsquo;s how it makes life a lot easier!&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;var&lt;/span&gt; fm &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; _y.FileManager(); &lt;span style=&#34;color: #888888&#34;&gt;// using YASMF&lt;/span&gt;
+    fm.init ( fm.PERSISTENT, &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;1024&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;1024&lt;/span&gt;) &lt;span style=&#34;color: #888888&#34;&gt;// request the persistent file system with 1mb of space&lt;/span&gt;
+         .then ( &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;function&lt;/span&gt; () { &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; fm.readDirectoryContents ( &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;, {} ); } ) &lt;span style=&#34;color: #888888&#34;&gt;// read the current directory&lt;/span&gt;
+         .then ( &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;function&lt;/span&gt; ( entries ) { &lt;span style=&#34;color: #888888&#34;&gt;//process the entries } ) // do something with the entries&lt;/span&gt;
+         .&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; ( &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;function&lt;/span&gt; ( anError ) { console.log (anError.code); } ) &lt;span style=&#34;color: #888888&#34;&gt;// log the error code&lt;/span&gt;
+         .done ();
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you want to use it in your projects, it works in the Google Chrome (v30 or higher) and PhoneGap / Cordova (dependent upon platform support).&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

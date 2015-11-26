@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mobile on Kerri Shotts</title>
+    <link>http://kerrishotts.github.io/tags/mobile/</link>
+    <description>Recent content in Mobile on Kerri Shotts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
+    <lastBuildDate>Sun, 01 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://kerrishotts.github.io/tags/mobile/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Phonegap 3.x Mobile Application Development Hotshot Released</title>
+      <link>http://kerrishotts.github.io/post/2014/06/01/</link>
+      <pubDate>Sun, 01 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://kerrishotts.github.io/post/2014/06/01/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m so proud to announce that my new book, &lt;em&gt;PhoneGap 3.x Mobile Application Development Hotshot&lt;/em&gt; is now available for
+purchase. It&amp;rsquo;s an update to my earlier book, and it has been modernized and updated for Cordova 3.x. Although the title
+includes &amp;ldquo;PhoneGap&amp;rdquo; in the name, it generally uses the Cordova Command Line Interface (&amp;ldquo;PhoneGap&amp;rdquo; is more recognizable
+in the market).&lt;/p&gt;
+
+&lt;p&gt;The book will guide you through the installation of the Cordova and PhoneGap CLIs and will also guide you through the
+development of three fully functional and interesting mobile apps. These apps are cross-platform (they work on iOS 6+
+and Android 4.x) and support multiple form factors (phone and tablet).&lt;/p&gt;
+
+&lt;p&gt;The first app is the most complex and is the one we spend seven chapters with. What starts out as a simple note-taking
+app is grown over the course of several chapters into a app that can play and record audio, take photos, and record
+video. When we&amp;rsquo;re done, it can also share content to social networks, and it can also adapt to different screen sizes.&lt;/p&gt;
+
+&lt;p&gt;The second app focuses on Google Maps and GPS &amp;ndash; it allows the user to record their location over a period of time. This
+path then shows up on the map using Google&amp;rsquo;s polylines. There&amp;rsquo;s also an online chapter where we extend the app to use
+native controls (for iOS 7 only).&lt;/p&gt;
+
+&lt;p&gt;The final app proves that we can learn &lt;em&gt;and&lt;/em&gt; have fun doing it, too. The app is a simple arcade-style game that uses the
+HTML5 Canvas and the accelerometer. The second version of the app adds support for a high score table (stored using Parse,
+a backend-as-a-service).&lt;/p&gt;
+
+&lt;p&gt;Throughout the book we also focus on technologies related to mobile application development. We introduce &lt;strong&gt;RequireJS&lt;/strong&gt;, which
+makes building large, complex apps easier with dependency management. We utilize &lt;strong&gt;Hammer.js&lt;/strong&gt; to provide gesture recognition
+(for &lt;strong&gt;swipe-to-delete&lt;/strong&gt; and &lt;strong&gt;fast touch recognition&lt;/strong&gt;). We also utilize &lt;strong&gt;CSS3 transitions and transforms&lt;/strong&gt; for smooth animation.&lt;/p&gt;
+
+&lt;p&gt;One possibly controversial decision is the use of the YASMF-Next framework in the book. First, I wanted to write a book
+&lt;em&gt;about PhoneGap&lt;/em&gt;, not a book &lt;em&gt;about a specific framework&lt;/em&gt; like jQuery or Sencha Touch. Unfortunately, although it&amp;rsquo;s possible
+to write apps without any framework, one quickly builds up a repository of reusable components that, over time, morph into
+a framework themselves. And that&amp;rsquo;s &lt;em&gt;YASMF-Next&lt;/em&gt; &amp;ndash; a framework I&amp;rsquo;ve designed
+that meets most of my needs when it comes to creating apps in PhoneGap. It&amp;rsquo;s young and immature, but it is being worked
+on heavily. An earlier version of this framework was used in the prior edition of the book, but my coding has grown in the
+last several months, and the new version of the framework reflects this. Furthermore, the framework is small &amp;ndash; it&amp;rsquo;s not
+terribly complicated, which means that it can be used as a learning tool as well (much as Minix can be used as a learning
+tool for operating system design). In addition, the book usually explains how YASMF-Next is accomplishing everything and
+shows similar code for accomplishing the tasks if you don&amp;rsquo;t want to use the framework. And, of course, you can always take
+the skills learned in the book and apply them to many of the other popular frameworks.&lt;/p&gt;
+
+&lt;p&gt;Finally, I wanted to thank all the reviewers who participated in making sure the content going into the book was accurate
+(and that it made sense), and Steve Husting in particular who was roped into testing the code (Thanks &amp;ndash; you&amp;rsquo;re a trooper!).
+I also wanted to thank all the hard workers at Packt Publishing who put everything together, kept me on task, limited my
+ramblings (sometimes to no avail, sorry!), and got this out the door.&lt;/p&gt;
+
+&lt;p&gt;So what are you waiting for? Use those &amp;ldquo;buy&amp;rdquo; buttons at the top of this post, or visit the following links to purchase the
+book! And if you&amp;rsquo;d be so kind to leave a review, that would be &lt;em&gt;amazing&lt;/em&gt;!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Buy the book:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.amazon.com/PhoneGap-Mobile-Application-Development-Hotshot-ebook/dp/B00KLAJ5Z0/&#34;&gt;Amazon.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.packtpub.com/phonegap-3-x-mobile-application-development-hotshot/book&#34;&gt;Packt Publishing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PhoneGap, SELECTs, and 3D transforms, oh my!</title>
+      <link>http://kerrishotts.github.io/post/quicktip/2012/11/12/</link>
+      <pubDate>Mon, 12 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kerrishotts.github.io/post/quicktip/2012/11/12/</guid>
+      <description>&lt;p&gt;In an app for a client, I was having an odd problem: the SELECT box wasn&amp;rsquo;t tappable on Android 2.x. It worked great on iOS. It worked great on Android 4.x. But on 2.x, it just wouldn&amp;rsquo;t respond to input.&lt;/p&gt;
+
+&lt;p&gt;After a bit of frustrated debugging, I found this page after a Google search: &lt;a href=&#34;http://stackoverflow.com/questions/4523309/select-box-not-displaying-on-android-in-phonegap&#34;&gt;http://stackoverflow.com/questions/4523309/select-box-not-displaying-on-android-in-phonegap&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Guess what &amp;ndash; problem solved. I removed the code I was using that added a -webkit-transform:translate3d(0,0,0) on the parent element, and the SELECT box worked beautifully again.&lt;/p&gt;
+
+&lt;p&gt;Thought you might want to know &amp;ndash; in case you ever had the same problem!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

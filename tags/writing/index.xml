@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writing on Kerri Shotts</title>
+    <link>http://kerrishotts.github.io/tags/writing/</link>
+    <description>Recent content in Writing on Kerri Shotts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
+    <lastBuildDate>Sun, 08 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://kerrishotts.github.io/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Writing a Technical Book, part 1</title>
+      <link>http://kerrishotts.github.io/post/2014/06/08/</link>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://kerrishotts.github.io/post/2014/06/08/</guid>
+      <description>
+
+&lt;p&gt;This is part 1 of a series regarding technical writing.&lt;/p&gt;
+
+&lt;p&gt;As you may or may not know, I&amp;rsquo;ve now written two pretty large technical books (one was the second edition of the first).
+This post is more about the &lt;em&gt;process&lt;/em&gt; of
+writing technical books, and later posts will go into more detail about my experiences with Packt Publishing (the
+publisher).&lt;/p&gt;
+
+&lt;h2 id=&#34;you-won-t-get-rich-writing-technical-books:a453c7a7ff454e847951e840794044f3&#34;&gt;You Won&amp;rsquo;t Get Rich Writing Technical Books&lt;/h2&gt;
+
+&lt;p&gt;First off, let&amp;rsquo;s make something very clear: technical books are mostly &lt;em&gt;niche&lt;/em&gt; products. They &lt;em&gt;aren&amp;rsquo;t&lt;/em&gt; going to make you rich, and only a very few writers are going to either have enough name recognition or will have written enough books in order to generate significant income. This is a fact, and you shouldn&amp;rsquo;t approach writing a technical book with &amp;ldquo;getting rich&amp;rdquo; in mind. It probably won&amp;rsquo;t happen.&lt;/p&gt;
+
+&lt;p&gt;There are several reasons for this fact:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Technical books often apply to a very narrow audience (by their very nature)&lt;/li&gt;
+&lt;li&gt;Technical books are commodities&lt;/li&gt;
+&lt;li&gt;Technical books are instantly obsolete&lt;/li&gt;
+&lt;li&gt;Advances, royalties, and e-books&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;technical-books-apply-to-a-very-narrow-audience:a453c7a7ff454e847951e840794044f3&#34;&gt;Technical Books Apply to a Very Narrow Audience&lt;/h3&gt;
+
+&lt;p&gt;It should be pretty obvious that the very nature of a technical book inherently limits the number of people who will purchase it. It&amp;rsquo;s not like the book you are writing is a fiction book that&amp;rsquo;s going to be the next &lt;em&gt;Harry Potter&lt;/em&gt; and will sell millions and millions of copies. Even if your book is about a widely used programming language or other well known topic, the number of people who are going to &lt;em&gt;buy&lt;/em&gt; your book are far less than those who are going to buy typical fiction (or even non-fiction) books.&lt;/p&gt;
+
+&lt;h3 id=&#34;technical-books-are-commodities:a453c7a7ff454e847951e840794044f3&#34;&gt;Technical books are Commodities&lt;/h3&gt;
+
+&lt;p&gt;That is to say that the publisher has no incentive to spend a huge sum of money on a technical book, nor do they have an incentive to take their time with more than a couple editing passes and such. Most of this is due to the next point, but I think you should already understand why this is generally true: technology often moves far too quickly for typical publishing. Technology is &lt;em&gt;fast&lt;/em&gt;, writing and publishing is &lt;em&gt;slow&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, this isn&amp;rsquo;t to say that the publisher doesn&amp;rsquo;t want to put a good book on the shelves &amp;ndash; of course they do. But neither do they have any incentive to pay you a large advance for it, nor do they have any incentive to allow you to take three or four years to &amp;ldquo;make it perfect&amp;rdquo; (much to the chagrin of perfectionists everywhere). In the first case, there&amp;rsquo;s always someone else willing to do the writing &amp;ldquo;just for fun&amp;rdquo; (and that isn&amp;rsquo;t meant to be derogatory &amp;ndash; &lt;em&gt;I&lt;/em&gt; like writing &lt;em&gt;just for fun&lt;/em&gt;), and there&amp;rsquo;s always the chance that the technology will quickly move on, leaving you in a perpetual state of editing and playing catch-up.&lt;/p&gt;
+
+&lt;h3 id=&#34;technical-books-are-instantly-obsolete:a453c7a7ff454e847951e840794044f3&#34;&gt;Technical Books are Instantly Obsolete&lt;/h3&gt;
+
+&lt;p&gt;Just to underscore the point, my book was about PhoneGap / Cordova 3.x. By the time the book was done, Cordova was at 3.4, and all the examples had been tested on that version. Two days after publication, Cordova 3.5 was released. Now, as far as I can tell, it broke nothing &amp;ndash; but there were occasions during the writing process where changes were released that &lt;em&gt;did&lt;/em&gt; break things. And of course, there&amp;rsquo;s still the chance that Cordova 3.6 or a plugins release will &lt;em&gt;still&lt;/em&gt; break the book. And, of course, being in print, there&amp;rsquo;s no way to fix it, short of submitting &lt;em&gt;errata&lt;/em&gt; and hoping that readers will look at them.&lt;/p&gt;
+
+&lt;h3 id=&#34;advances-royalties-and-e-books:a453c7a7ff454e847951e840794044f3&#34;&gt;Advances, Royalties, and E-books&lt;/h3&gt;
+
+&lt;p&gt;Now, Packt generally offers a pretty good advance for their technical publishing, especially for first editions. (Later editions get lower advances, because it is assumed one won&amp;rsquo;t have to rewrite the whole thing. Which was not the case for the second edition of my book, but oh well!) Packt&amp;rsquo;s royalty rate is pretty good too, but it comes out to a few dollars per unit. Furthermore, you won&amp;rsquo;t see any royalty payments until your advance is paid off, so if a book sells slowly or poorly, it may be quite some time before you see any more income from your efforts.&lt;/p&gt;
+
+&lt;p&gt;Not that I&amp;rsquo;m complaining in all of this, &lt;em&gt;I&amp;rsquo;m not&lt;/em&gt;. I love writing, and do it &lt;em&gt;for fun&lt;/em&gt;, so I have no problem with the economies involved here. But if I were to be honest, and I were to &lt;em&gt;value&lt;/em&gt; the book based on the time it took and the amount I would charge a client, the book would easily have cost between $50,000 and $100,000 (USD). I won&amp;rsquo;t go into what my advance was, or what I expect my royalties to be, but let&amp;rsquo;s be blunt: it won&amp;rsquo;t pay for itself, or even come close. &lt;em&gt;And I don&amp;rsquo;t care.&lt;/em&gt; But if you were going into this &lt;em&gt;caring about breaking even or making goodly amounts of money&lt;/em&gt;, you are going to be in a world of hurt.&lt;/p&gt;
+
+&lt;p&gt;Furthermore, e-books and retailers add another wrinkle in this. The suggested price for my book is in the $50 range, while the price on Amazon is $33. The e-book price is even lower: $20. Obviously the royalties generated from these purchases are going to be lower. If the rest of the world is anything like me, I buy nearly all my books as e-books, and I suspect most people buying my book would do so as well. Again, &lt;em&gt;not complaining&lt;/em&gt;, but pointing out the economies involved.&lt;/p&gt;
+
+&lt;h2 id=&#34;writing-technical-books:a453c7a7ff454e847951e840794044f3&#34;&gt;Writing Technical Books&lt;/h2&gt;
+
+&lt;p&gt;The process of writing a technical book is&amp;hellip; intense. Most publishers will indicate that you can do write a technical book alongside of your full-time job, with only a few additional hours dedicated to the book. O, if that were true. &lt;em&gt;It isn&amp;rsquo;t&lt;/em&gt;. (Maybe someone can, but not me.)&lt;/p&gt;
+
+&lt;p&gt;What&amp;rsquo;s &lt;em&gt;true&lt;/em&gt; is that you&amp;rsquo;ll be working at least an additional &lt;em&gt;part-time&lt;/em&gt; job (around 20 hours per week). Now, I&amp;rsquo;m sure this varies based on the type of book being written, but here&amp;rsquo;s how my process typically went:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create the sample application for the chapter.&lt;/li&gt;
+&lt;li&gt;Debug the sample application.&lt;/li&gt;
+&lt;li&gt;Test the sample application on various devices, and fix any issues.&lt;/li&gt;
+&lt;li&gt;Write the first pass of the text, applying special styles as necessary to mark certain parts as keywords, code, URLs, etc.&lt;/li&gt;
+&lt;li&gt;Create the necessary graphics for the chapter (diagrams, screenshots, etc.).&lt;/li&gt;
+&lt;li&gt;Copy in the code samples from the application for the book, adjust formatting, add useful comments.&lt;/li&gt;
+&lt;li&gt;Review the text to ensure that everything makes sense, is in the right order, etc.&lt;/li&gt;
+&lt;li&gt;Package the text and code and send it to the publisher.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This was the process for the first few chapters, but after a while, one hears back from the publisher (and other technical reviewers &amp;ndash; life-savers, them!) with comments about the earlier chapters: about what didn&amp;rsquo;t make sense or didn&amp;rsquo;t work, etc. These comments are &lt;em&gt;invaluable&lt;/em&gt;, and the book wouldn&amp;rsquo;t be half as good without them. But now the process becomes all of the above (for the current chapter), and then add the  following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Review comments from publisher / reviewer.&lt;/li&gt;
+&lt;li&gt;Revise text accordingly (using best judgement &amp;ndash; there isn&amp;rsquo;t always room to respond to every comment).&lt;/li&gt;
+&lt;li&gt;Revise the code and graphics if necessary.&lt;/li&gt;
+&lt;li&gt;Update the code and text for the chapter to reflect any breaking changes (and test, again!), especially if the underlying platform has changed since the original writing.&lt;/li&gt;
+&lt;li&gt;Repackage code, graphics, and text, and send to the publisher.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now, all of this goes on &lt;em&gt;while you are doing your regular job&lt;/em&gt;. Although I&amp;rsquo;m a consultant that gets to work remotely and gets to manage her time much more flexibly than others, even I found it difficult to manage both my &amp;ldquo;day job&amp;rdquo; and my &amp;ldquo;book job&amp;rdquo;. I&amp;rsquo;m not sure I could have done it working a 40-60 hour/week job alongside.&lt;/p&gt;
+
+&lt;p&gt;Needless to say, there were many coding and writing marathons going on each week: quite often the weekend would receive the brunt of this &amp;ndash; with 10-12 hour days for two or three days in a row to meet the deadline. Of course &lt;em&gt;during the week&lt;/em&gt; there were often long evenings as well &amp;ndash; it&amp;rsquo;s extremely difficult to write a sample app in a week or two for a book, especially when it usually takes much, much longer to push an app to an app store.&lt;/p&gt;
+
+&lt;p&gt;Of course, no one is &lt;em&gt;perfect&lt;/em&gt;, and so there were inevitably going to be errors in the book that neither me, nor the publisher, nor the reviewers were going to catch. This is a fact of writing books: &lt;em&gt;we&amp;rsquo;re all human&lt;/em&gt;. Some of these errors were my mistake &amp;ndash; others were issues caused by trying to keep up with the evolving technology stack I was writing about. In the case of this book, it is &lt;em&gt;absolutely true&lt;/em&gt; when I tell you that I was submitting changes to the text &lt;em&gt;a couple days before it was to be uploaded to the printers&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s enough for part 1 of this series, I think. In the next section, I want to cover some of the tools I used in writing the book, and then I will go on to get into details regarding working with Packt Publishing and address areas where the process could use improvement, but also address the overall good experience of publishing with Packt.&lt;/p&gt;
+
+&lt;p&gt;Until next time, keep writing/coding!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

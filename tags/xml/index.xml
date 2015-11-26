@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xml on Kerri Shotts</title>
+    <link>http://kerrishotts.github.io/tags/xml/</link>
+    <description>Recent content in Xml on Kerri Shotts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 25 Sep 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://kerrishotts.github.io/tags/xml/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using SOAP in a PhoneGap App</title>
+      <link>http://kerrishotts.github.io/post/2012/09/25/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kerrishotts.github.io/post/2012/09/25/</guid>
+      <description>&lt;p&gt;Yeah, yeah, so using SOAP is generally not the preferred solution when working from Javascript. It&amp;rsquo;s so much easier to handle data in JSON rather than in XML. But sometimes you can&amp;rsquo;t avoid it.&lt;/p&gt;
+
+&lt;p&gt;To help, I&amp;rsquo;ve &lt;em&gt;started&lt;/em&gt; a simple library that helps make our lives a &lt;em&gt;little&lt;/em&gt; bit easier. It&amp;rsquo;s nothing big yet, doesn&amp;rsquo;t validate the data yet, and surely has lots of bugs. In other words: &lt;em&gt;don&amp;rsquo;t use it for production&lt;/em&gt; without understanding the potential glitches. If the data you are sending to the server is likely to have &amp;ldquo;&amp;lt;&amp;rdquo; or &amp;ldquo;&amp;gt;&amp;rdquo;, be careful – the library will very likely barf. I&amp;rsquo;m sure there&amp;rsquo;s things I haven&amp;rsquo;t even started to consider.&lt;/p&gt;
+
+&lt;p&gt;Even so, it&amp;rsquo;s a start, and it doesn&amp;rsquo;t require any additional libraries. I can verify that it works from within PhoneGap (which was the main point), at least on WebKit browsers. Android 2.x &lt;em&gt;may&lt;/em&gt; have a bug with the &amp;ldquo;content-length&amp;rdquo; header – in which case, just remove that line. I have no idea about WP7 or WP8. On iOS, it just works.&lt;/p&gt;
+
+&lt;p&gt;The gist is here, under an MIT license: &lt;a href=&#34;https://gist.github.com/3786070&#34;&gt;https://gist.github.com/3786070&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Feel free to fork, improve, use, etc. If you do find a bug or implement a fix, it&amp;rsquo;d be nice to share it back, but since it&amp;rsquo;s under MIT, you&amp;rsquo;re under no requirement to do so.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

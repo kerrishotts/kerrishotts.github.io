@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Phonegap on Kerri Shotts</title>
+    <link>http://kerrishotts.github.io/tags/phonegap/</link>
+    <description>Recent content in Phonegap on Kerri Shotts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 25 Nov 2015 22:29:58 -0600</lastBuildDate>
+    <atom:link href="http://kerrishotts.github.io/tags/phonegap/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cordova/PhoneGap &amp; CSP (QuickTip)</title>
+      <link>http://kerrishotts.github.io/post/quicktip/2015/11/25-cordova-csp/</link>
+      <pubDate>Wed, 25 Nov 2015 22:29:58 -0600</pubDate>
+      
+      <guid>http://kerrishotts.github.io/post/quicktip/2015/11/25-cordova-csp/</guid>
+      <description>
+
+&lt;p&gt;I just wanted to share a few tips regarding the Content Security Policy meta tag that we need to use in PhoneGap/Cordova apps. I&amp;rsquo;m not going to cover &lt;em&gt;all&lt;/em&gt; the gory details &amp;mdash; for that, there are plenty of great sites.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/en/tutorials/security/content-security-policy/&#34;&gt;Content Security Policy (HTML5Rocks)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Using_Content_Security_Policy&#34;&gt;Using Content Security Policy (MDN)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;rsquo;m just going to focus on a few specific use cases when it comes to the intersection of CSP and Cordova/PhoneGap, but there’s a couple things we need to mention first.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-csp-meta-tag:e5b6aa8725667982def880fbba897e59&#34;&gt;The CSP Meta Tag&lt;/h2&gt;
+
+&lt;p&gt;CSP directives are specified by a &lt;code&gt;meta&lt;/code&gt; tag, like so:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;meta&lt;/span&gt; &lt;span style=&#34;color: #0000CC&#34;&gt;http-equiv=&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Content-Security-Policy&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #0000CC&#34;&gt;contents=&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;...&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #007700&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;csp-directives:e5b6aa8725667982def880fbba897e59&#34;&gt;CSP Directives&lt;/h2&gt;
+
+&lt;p&gt;CSP controls what sources are permitted and what sources aren&amp;rsquo;t. Because there are many different types of assets our page might need, CSP also allows us to be very granular with respect to what types of assets can be loaded from which sources. There&amp;rsquo;s several directives available, like so:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;directive&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;img-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Image sources (like PNG, JPG, SVG, etc.)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;media-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Video/audio sources&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;script-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Script sources&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;style-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Stylesheet sources&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;font-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Webfont sources&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;default-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Fallback for most directives&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This isn&amp;rsquo;t the entire list of available directives, so you’ll want to check out the links at the head of this article for all the possibilities, but this should give you a pretty good idea of the granularity of CSP.&lt;/p&gt;
+
+&lt;p&gt;Furthermore, it&amp;rsquo;s important to note that there is a hierarchy of sorts — if you don&amp;rsquo;t specify &lt;code&gt;img-src&lt;/code&gt;, but do specify &lt;code&gt;default-src&lt;/code&gt;, then &lt;code&gt;default-src&lt;/code&gt; is used instead. If you specify both, however, the values won&amp;rsquo;t inherit from &lt;code&gt;default-src&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;csp-sources:e5b6aa8725667982def880fbba897e59&#34;&gt;CSP Sources&lt;/h2&gt;
+
+&lt;p&gt;A source is either a URL or a special keyword. A URL can look like this:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;http://www.example.com&lt;/code&gt; &amp;ndash; allow resources from this domain, including any pages on it&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;http://*.example.com&lt;/code&gt; &amp;ndash; allow resources from this domain, including any subdomains.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;*://*.example.com&lt;/code&gt; &amp;ndash; allow resources from this domain, any subdomains, &lt;em&gt;and&lt;/em&gt; any URL scheme&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;*://*.example.com:*&lt;/code&gt; &amp;ndash; allow resources from this domain, any subdomains, any URL scheme, &lt;strong&gt;and&lt;/strong&gt; any port.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Although it might appear that you can use wildcards anywhere, you can&amp;rsquo;t. You can only use a wildcard for the URL scheme, the left part of the domain, and the port.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There are four keywords that you can also use:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&#39;none&#39;&lt;/code&gt; &amp;ndash; indicates that no source is permitted. This disables access for the specified directive.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&#39;self&#39;&lt;/code&gt; &amp;ndash; indicates that local resources are permitted.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&#39;unsafe-inline&#39;&lt;/code&gt; &amp;ndash; permits inline scripts/styles&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&#39;unsave-eval&#39;&lt;/code&gt; &amp;ndash; permits &lt;code&gt;eval()&lt;/code&gt; and its ilk.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;csp-syntax:e5b6aa8725667982def880fbba897e59&#34;&gt;CSP Syntax&lt;/h2&gt;
+
+&lt;p&gt;Each directive can have any number of sources. Each one is separated by a space. The entire set of directives are separated by semicolons. This makes things a little difficult to read, but that&amp;rsquo;s the way it&amp;rsquo;s built. For example, here&amp;rsquo;s a sample CSP tag:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;meta&lt;/span&gt; &lt;span style=&#34;color: #0000CC&#34;&gt;http-equiv=&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Content-Security-Policy&amp;quot;&lt;/span&gt; 
+ &lt;span style=&#34;color: #0000CC&#34;&gt;content=&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;default-src &amp;#39;self&amp;#39; https://*.example.com;&lt;/span&gt;
+&lt;span style=&#34;background-color: #fff0f0&#34;&gt;              img-src &amp;#39;self&amp;#39; https://images.example.com data:;&lt;/span&gt;
+&lt;span style=&#34;background-color: #fff0f0&#34;&gt;           script-src &amp;#39;self&amp;#39; https://scripts.example.com&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #007700&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This isn&amp;rsquo;t a terribly useful CSP, but it does illustrate the syntax.&lt;/p&gt;
+
+&lt;h2 id=&#34;common-cordova-uses:e5b6aa8725667982def880fbba897e59&#34;&gt;Common Cordova Uses&lt;/h2&gt;
+
+&lt;p&gt;With all that out of the way, here&amp;rsquo;s some common tasks you might need to perform  in a Cordova app — along with the directives you need to specify to permit them:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;task&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;directive&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;iOS Support&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;default-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;gap://*&lt;/code&gt; (1)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Allow web socket communication&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;default-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;ws://*&lt;/code&gt; (2)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Execute / load local resources&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;default-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;&#39;self&#39;&lt;/code&gt; (3)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Load &lt;code&gt;data:&lt;/code&gt; images&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;img-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;data:&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Permit &lt;code&gt;eval()&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;script-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;&#39;unsafe-eval&#39;&lt;/code&gt;   (4)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Permit inline scripting&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;script-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;&#39;unsafe-inline&#39;&lt;/code&gt; (5)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Permit inline styles&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;style-src&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;&#39;unsafe-inline&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Notes:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;This is critically important for your Cordova/PhoneGap apps running on iOS. Without it, plugins and Cordova events won&amp;rsquo;t work.&lt;/li&gt;
+&lt;li&gt;If you use web sockets for communication, you’ll need to allow this URL scheme. Our example allows communication with any host on any port, but ideally you&amp;rsquo;ll be more specific.&lt;/li&gt;
+&lt;li&gt;You should always have &lt;code&gt;&#39;self&#39;&lt;/code&gt; in any directive so that you can load local resources. If you override any other directive, you’ll need to specify &lt;code&gt;&#39;self&#39;&lt;/code&gt; there too.&lt;/li&gt;
+&lt;li&gt;Only allow &lt;code&gt;eval()&lt;/code&gt; if you absolutely must do so. Some plugins, libraries and frameworks will require it, but if you can avoid it, this should be avoided, as it can be a huge security hole.&lt;/li&gt;
+&lt;li&gt;Only allow inline scripting if you absolutely must. Again, some frameworks and such might require it, but it&amp;rsquo;s a huge security risk if you’re injecting dynamic HTML using untrusted data.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;what-about-browsersync:e5b6aa8725667982def880fbba897e59&#34;&gt;What about BrowserSync?&lt;/h2&gt;
+
+&lt;p&gt;I really, really, really like to use BrowserSync when rapidly iterating, especially because it lets me have the same content loaded across multiple devices, including the desktop. When I make changes, the content can automatically be updated.&lt;/p&gt;
+
+&lt;p&gt;In order to use BrowserSync, however, you need to enable certain CSP rules. These should only be enabled during development, unless you’re using another framework or plugin that requires them:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add &lt;code&gt;ws://*&lt;/code&gt; to the &lt;code&gt;default-src&lt;/code&gt; directive — BrowserSync communicates over web sockets.&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;&#39;unsafe-inline&#39;&lt;/code&gt; to the &lt;code&gt;script-src&lt;/code&gt; directive.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You can also use &lt;code&gt;phonegap serve&lt;/code&gt; and the PhoneGap Developer app for a similar experience. However, I&amp;rsquo;ve only had limited luck in getting this to work well within my typical build setup (which has all sorts of stuff going on!), while BrowserSync works a peach.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Phonegap 3.x Mobile Application Development Hotshot Released</title>
+      <link>http://kerrishotts.github.io/post/2014/06/01/</link>
+      <pubDate>Sun, 01 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://kerrishotts.github.io/post/2014/06/01/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m so proud to announce that my new book, &lt;em&gt;PhoneGap 3.x Mobile Application Development Hotshot&lt;/em&gt; is now available for
+purchase. It&amp;rsquo;s an update to my earlier book, and it has been modernized and updated for Cordova 3.x. Although the title
+includes &amp;ldquo;PhoneGap&amp;rdquo; in the name, it generally uses the Cordova Command Line Interface (&amp;ldquo;PhoneGap&amp;rdquo; is more recognizable
+in the market).&lt;/p&gt;
+
+&lt;p&gt;The book will guide you through the installation of the Cordova and PhoneGap CLIs and will also guide you through the
+development of three fully functional and interesting mobile apps. These apps are cross-platform (they work on iOS 6+
+and Android 4.x) and support multiple form factors (phone and tablet).&lt;/p&gt;
+
+&lt;p&gt;The first app is the most complex and is the one we spend seven chapters with. What starts out as a simple note-taking
+app is grown over the course of several chapters into a app that can play and record audio, take photos, and record
+video. When we&amp;rsquo;re done, it can also share content to social networks, and it can also adapt to different screen sizes.&lt;/p&gt;
+
+&lt;p&gt;The second app focuses on Google Maps and GPS &amp;ndash; it allows the user to record their location over a period of time. This
+path then shows up on the map using Google&amp;rsquo;s polylines. There&amp;rsquo;s also an online chapter where we extend the app to use
+native controls (for iOS 7 only).&lt;/p&gt;
+
+&lt;p&gt;The final app proves that we can learn &lt;em&gt;and&lt;/em&gt; have fun doing it, too. The app is a simple arcade-style game that uses the
+HTML5 Canvas and the accelerometer. The second version of the app adds support for a high score table (stored using Parse,
+a backend-as-a-service).&lt;/p&gt;
+
+&lt;p&gt;Throughout the book we also focus on technologies related to mobile application development. We introduce &lt;strong&gt;RequireJS&lt;/strong&gt;, which
+makes building large, complex apps easier with dependency management. We utilize &lt;strong&gt;Hammer.js&lt;/strong&gt; to provide gesture recognition
+(for &lt;strong&gt;swipe-to-delete&lt;/strong&gt; and &lt;strong&gt;fast touch recognition&lt;/strong&gt;). We also utilize &lt;strong&gt;CSS3 transitions and transforms&lt;/strong&gt; for smooth animation.&lt;/p&gt;
+
+&lt;p&gt;One possibly controversial decision is the use of the YASMF-Next framework in the book. First, I wanted to write a book
+&lt;em&gt;about PhoneGap&lt;/em&gt;, not a book &lt;em&gt;about a specific framework&lt;/em&gt; like jQuery or Sencha Touch. Unfortunately, although it&amp;rsquo;s possible
+to write apps without any framework, one quickly builds up a repository of reusable components that, over time, morph into
+a framework themselves. And that&amp;rsquo;s &lt;em&gt;YASMF-Next&lt;/em&gt; &amp;ndash; a framework I&amp;rsquo;ve designed
+that meets most of my needs when it comes to creating apps in PhoneGap. It&amp;rsquo;s young and immature, but it is being worked
+on heavily. An earlier version of this framework was used in the prior edition of the book, but my coding has grown in the
+last several months, and the new version of the framework reflects this. Furthermore, the framework is small &amp;ndash; it&amp;rsquo;s not
+terribly complicated, which means that it can be used as a learning tool as well (much as Minix can be used as a learning
+tool for operating system design). In addition, the book usually explains how YASMF-Next is accomplishing everything and
+shows similar code for accomplishing the tasks if you don&amp;rsquo;t want to use the framework. And, of course, you can always take
+the skills learned in the book and apply them to many of the other popular frameworks.&lt;/p&gt;
+
+&lt;p&gt;Finally, I wanted to thank all the reviewers who participated in making sure the content going into the book was accurate
+(and that it made sense), and Steve Husting in particular who was roped into testing the code (Thanks &amp;ndash; you&amp;rsquo;re a trooper!).
+I also wanted to thank all the hard workers at Packt Publishing who put everything together, kept me on task, limited my
+ramblings (sometimes to no avail, sorry!), and got this out the door.&lt;/p&gt;
+
+&lt;p&gt;So what are you waiting for? Use those &amp;ldquo;buy&amp;rdquo; buttons at the top of this post, or visit the following links to purchase the
+book! And if you&amp;rsquo;d be so kind to leave a review, that would be &lt;em&gt;amazing&lt;/em&gt;!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Buy the book:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.amazon.com/PhoneGap-Mobile-Application-Development-Hotshot-ebook/dp/B00KLAJ5Z0/&#34;&gt;Amazon.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.packtpub.com/phonegap-3-x-mobile-application-development-hotshot/book&#34;&gt;Packt Publishing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using the File API without callbacks</title>
+      <link>http://kerrishotts.github.io/post/2013/10/26/</link>
+      <pubDate>Sat, 26 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://kerrishotts.github.io/post/2013/10/26/</guid>
+      <description>&lt;p&gt;So, it&amp;rsquo;s pretty much a given that working with the HTML5 API is a painful experience due to all those levels of callbacks. Even
+a simple operation turns into something unnecessarily complex, and so I present FileManager &amp;ndash; a simple wrapper around frequently
+used portions of the File API that uses Promises (or Q.js, specifically).&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s super easy to use, and while it&amp;rsquo;s officially part of the YASMF framework (&lt;a href=&#34;https://github.com/photokandyStudios/YASMF-Next&#34;&gt;https://github.com/photokandyStudios/YASMF-Next&lt;/a&gt;), it doesn&amp;rsquo;t depend on it outright (you can use the gist instead: &lt;a href=&#34;https://gist.github.com/kerrishotts/7147214&#34;&gt;https://gist.github.com/kerrishotts/7147214&lt;/a&gt;). It does require that Q.js be loaded prior to using it &amp;ndash; however you like doing that is up to you.&lt;/p&gt;
+
+&lt;p&gt;If you like to use Q.js/Promises, and use the File API a lot, you might just want to try it out.&lt;/p&gt;
+
+&lt;p&gt;Docs: &lt;a href=&#34;https://github.com/photokandyStudios/YASMF-Next/wiki/FileManager&#34;&gt;https://github.com/photokandyStudios/YASMF-Next/wiki/FileManager&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Github: &lt;a href=&#34;https://github.com/photokandyStudios/YASMF-Next/blob/master/lib/yasmf/util/fileManager.js&#34;&gt;https://github.com/photokandyStudios/YASMF-Next/blob/master/lib/yasmf/util/fileManager.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Gist (stand-alone): &lt;a href=&#34;https://gist.github.com/kerrishotts/7147214&#34;&gt;https://gist.github.com/kerrishotts/7147214&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As a quick example, here&amp;rsquo;s how it makes life a lot easier!&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;var&lt;/span&gt; fm &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; _y.FileManager(); &lt;span style=&#34;color: #888888&#34;&gt;// using YASMF&lt;/span&gt;
+    fm.init ( fm.PERSISTENT, &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;1024&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;1024&lt;/span&gt;) &lt;span style=&#34;color: #888888&#34;&gt;// request the persistent file system with 1mb of space&lt;/span&gt;
+         .then ( &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;function&lt;/span&gt; () { &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; fm.readDirectoryContents ( &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;, {} ); } ) &lt;span style=&#34;color: #888888&#34;&gt;// read the current directory&lt;/span&gt;
+         .then ( &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;function&lt;/span&gt; ( entries ) { &lt;span style=&#34;color: #888888&#34;&gt;//process the entries } ) // do something with the entries&lt;/span&gt;
+         .&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; ( &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;function&lt;/span&gt; ( anError ) { console.log (anError.code); } ) &lt;span style=&#34;color: #888888&#34;&gt;// log the error code&lt;/span&gt;
+         .done ();
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you want to use it in your projects, it works in the Google Chrome (v30 or higher) and PhoneGap / Cordova (dependent upon platform support).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PhoneGap, SELECTs, and 3D transforms, oh my!</title>
+      <link>http://kerrishotts.github.io/post/quicktip/2012/11/12/</link>
+      <pubDate>Mon, 12 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kerrishotts.github.io/post/quicktip/2012/11/12/</guid>
+      <description>&lt;p&gt;In an app for a client, I was having an odd problem: the SELECT box wasn&amp;rsquo;t tappable on Android 2.x. It worked great on iOS. It worked great on Android 4.x. But on 2.x, it just wouldn&amp;rsquo;t respond to input.&lt;/p&gt;
+
+&lt;p&gt;After a bit of frustrated debugging, I found this page after a Google search: &lt;a href=&#34;http://stackoverflow.com/questions/4523309/select-box-not-displaying-on-android-in-phonegap&#34;&gt;http://stackoverflow.com/questions/4523309/select-box-not-displaying-on-android-in-phonegap&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Guess what &amp;ndash; problem solved. I removed the code I was using that added a -webkit-transform:translate3d(0,0,0) on the parent element, and the SELECT box worked beautifully again.&lt;/p&gt;
+
+&lt;p&gt;Thought you might want to know &amp;ndash; in case you ever had the same problem!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using SOAP in a PhoneGap App</title>
+      <link>http://kerrishotts.github.io/post/2012/09/25/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kerrishotts.github.io/post/2012/09/25/</guid>
+      <description>&lt;p&gt;Yeah, yeah, so using SOAP is generally not the preferred solution when working from Javascript. It&amp;rsquo;s so much easier to handle data in JSON rather than in XML. But sometimes you can&amp;rsquo;t avoid it.&lt;/p&gt;
+
+&lt;p&gt;To help, I&amp;rsquo;ve &lt;em&gt;started&lt;/em&gt; a simple library that helps make our lives a &lt;em&gt;little&lt;/em&gt; bit easier. It&amp;rsquo;s nothing big yet, doesn&amp;rsquo;t validate the data yet, and surely has lots of bugs. In other words: &lt;em&gt;don&amp;rsquo;t use it for production&lt;/em&gt; without understanding the potential glitches. If the data you are sending to the server is likely to have &amp;ldquo;&amp;lt;&amp;rdquo; or &amp;ldquo;&amp;gt;&amp;rdquo;, be careful – the library will very likely barf. I&amp;rsquo;m sure there&amp;rsquo;s things I haven&amp;rsquo;t even started to consider.&lt;/p&gt;
+
+&lt;p&gt;Even so, it&amp;rsquo;s a start, and it doesn&amp;rsquo;t require any additional libraries. I can verify that it works from within PhoneGap (which was the main point), at least on WebKit browsers. Android 2.x &lt;em&gt;may&lt;/em&gt; have a bug with the &amp;ldquo;content-length&amp;rdquo; header – in which case, just remove that line. I have no idea about WP7 or WP8. On iOS, it just works.&lt;/p&gt;
+
+&lt;p&gt;The gist is here, under an MIT license: &lt;a href=&#34;https://gist.github.com/3786070&#34;&gt;https://gist.github.com/3786070&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Feel free to fork, improve, use, etc. If you do find a bug or implement a fix, it&amp;rsquo;d be nice to share it back, but since it&amp;rsquo;s under MIT, you&amp;rsquo;re under no requirement to do so.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

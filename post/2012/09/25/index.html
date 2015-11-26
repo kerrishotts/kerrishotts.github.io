@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Using SOAP in a PhoneGap App &middot;  Kerri Shotts" />
+  	<meta property="og:site_name" content="Kerri Shotts" />
+  	<meta property="og:url" content="http://kerrishotts.github.io/post/2012/09/25/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2012-09-25T00:00:00Z" />
+
+    
+    <meta property="og:article:tag" content="cordova" />
+    
+    <meta property="og:article:tag" content="phonegap" />
+    
+    <meta property="og:article:tag" content="SOAP" />
+    
+    <meta property="og:article:tag" content="xml" />
+    
+    <meta property="og:article:tag" content="web services" />
+    
+    
+
+  <title>
+     Using SOAP in a PhoneGap App &middot;  Kerri Shotts
+  </title>
+
+    <meta name="description" content="Thoughts from beyond..." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://kerrishotts.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://kerrishotts.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://kerrishotts.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://kerrishotts.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://kerrishotts.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Kerri Shotts" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.14" />
+
+    <link rel="canonical" href="http://kerrishotts.github.io/post/2012/09/25/" />
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://kerrishotts.github.io/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://kerrishotts.github.io/page/about/">About Kerri</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://kerrishotts.github.io/page/contact/">Contact Kerri</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="http://kerrishotts.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+      <a class="blog-logo" href="http://kerrishotts.github.io/"><img src="http://kerrishotts.github.io/images/avatar.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Using SOAP in a PhoneGap App</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2012-09-25T00:00:00Z">
+            Sep 25, 2012
+          </time>
+        
+         
+          <span class="post-tag small"><a href="http://kerrishotts.github.io/tags/cordova/">#cordova</a></span>
+         
+          <span class="post-tag small"><a href="http://kerrishotts.github.io/tags/phonegap/">#phonegap</a></span>
+         
+          <span class="post-tag small"><a href="http://kerrishotts.github.io/tags/soap/">#SOAP</a></span>
+         
+          <span class="post-tag small"><a href="http://kerrishotts.github.io/tags/xml/">#xml</a></span>
+         
+          <span class="post-tag small"><a href="http://kerrishotts.github.io/tags/web-services/">#web services</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <p>Yeah, yeah, so using SOAP is generally not the preferred solution when working from Javascript. It&rsquo;s so much easier to handle data in JSON rather than in XML. But sometimes you can&rsquo;t avoid it.</p>
+
+<p>To help, I&rsquo;ve <em>started</em> a simple library that helps make our lives a <em>little</em> bit easier. It&rsquo;s nothing big yet, doesn&rsquo;t validate the data yet, and surely has lots of bugs. In other words: <em>don&rsquo;t use it for production</em> without understanding the potential glitches. If the data you are sending to the server is likely to have &ldquo;&lt;&rdquo; or &ldquo;&gt;&rdquo;, be careful – the library will very likely barf. I&rsquo;m sure there&rsquo;s things I haven&rsquo;t even started to consider.</p>
+
+<p>Even so, it&rsquo;s a start, and it doesn&rsquo;t require any additional libraries. I can verify that it works from within PhoneGap (which was the main point), at least on WebKit browsers. Android 2.x <em>may</em> have a bug with the &ldquo;content-length&rdquo; header – in which case, just remove that line. I have no idea about WP7 or WP8. On iOS, it just works.</p>
+
+<p>The gist is here, under an MIT license: <a href="https://gist.github.com/3786070">https://gist.github.com/3786070</a></p>
+
+<p>Feel free to fork, improve, use, etc. If you do find a bug or implement a fix, it&rsquo;d be nice to share it back, but since it&rsquo;s under MIT, you&rsquo;re under no requirement to do so.</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://kerrishotts.github.io/" style="background-image: url(http://kerrishotts.github.io/images/avatar.jpg)"><span class="hidden">Kerri Shotts's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="http://kerrishotts.github.io/">Kerri Shotts</a></h4>
+  
+  <p>Kerri Shotts is a mobile hybrid app developer, an author of several tech books on Cordova, and a photographer.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Southern Illinois</span>
+    
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Using%20SOAP%20in%20a%20PhoneGap%20App&amp;url=http%3a%2f%2fkerrishotts.github.io%2fpost%2f2012%2f09%2f25%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkerrishotts.github.io%2fpost%2f2012%2f09%2f25%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fkerrishotts.github.io%2fpost%2f2012%2f09%2f25%2f&amp;description=Using%20SOAP%20in%20a%20PhoneGap%20App"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fkerrishotts.github.io%2fpost%2f2012%2f09%2f25%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'kerrishotts';
+  var disqus_url = 'http:\/\/kerrishotts.github.io\/post\/2012\/09\/25\/';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Kerri Shotts</a> Copyright © 2015 Kerri Shotts. All Rights Reserved.</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://kerrishotts.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://kerrishotts.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://kerrishotts.github.io/js/index.js"></script>
+    
+</body>
+</html>
+

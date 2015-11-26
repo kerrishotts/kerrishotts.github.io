@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Cordova/PhoneGap &amp; CSP (QuickTip) &middot;  Kerri Shotts" />
+  	<meta property="og:site_name" content="Kerri Shotts" />
+  	<meta property="og:url" content="http://kerrishotts.github.io/post/quicktip/2015/11/25-cordova-csp/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2015-11-25T22:29:58-06:00" />
+
+    
+    <meta property="og:article:tag" content="cordova" />
+    
+    <meta property="og:article:tag" content="quicktip" />
+    
+    <meta property="og:article:tag" content="phonegap" />
+    
+    <meta property="og:article:tag" content="csp" />
+    
+    
+
+  <title>
+     Cordova/PhoneGap &amp; CSP (QuickTip) &middot;  Kerri Shotts
+  </title>
+
+    <meta name="description" content="Thoughts from beyond..." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://kerrishotts.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://kerrishotts.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://kerrishotts.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://kerrishotts.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://kerrishotts.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Kerri Shotts" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.14" />
+
+    <link rel="canonical" href="http://kerrishotts.github.io/post/quicktip/2015/11/25-cordova-csp/" />
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://kerrishotts.github.io/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://kerrishotts.github.io/page/about/">About Kerri</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://kerrishotts.github.io/page/contact/">Contact Kerri</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="http://kerrishotts.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head" style="background-image: url(http://kerrishotts.github.io/images/block-code-large.png)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="http://kerrishotts.github.io/"><img src="http://kerrishotts.github.io/images/avatar.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Cordova/PhoneGap &amp; CSP (QuickTip)</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2015-11-25T22:29:58-06:00">
+            Nov 25, 2015
+          </time>
+        
+         
+          <span class="post-tag small"><a href="http://kerrishotts.github.io/tags/cordova/">#cordova</a></span>
+         
+          <span class="post-tag small"><a href="http://kerrishotts.github.io/tags/quicktip/">#quicktip</a></span>
+         
+          <span class="post-tag small"><a href="http://kerrishotts.github.io/tags/phonegap/">#phonegap</a></span>
+         
+          <span class="post-tag small"><a href="http://kerrishotts.github.io/tags/csp/">#csp</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p>I just wanted to share a few tips regarding the Content Security Policy meta tag that we need to use in PhoneGap/Cordova apps. I&rsquo;m not going to cover <em>all</em> the gory details &mdash; for that, there are plenty of great sites.</p>
+
+<ul>
+<li><a href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">Content Security Policy (HTML5Rocks)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Using_Content_Security_Policy">Using Content Security Policy (MDN)</a></li>
+</ul>
+
+<p>I&rsquo;m just going to focus on a few specific use cases when it comes to the intersection of CSP and Cordova/PhoneGap, but there’s a couple things we need to mention first.</p>
+
+<h2 id="the-csp-meta-tag:e5b6aa8725667982def880fbba897e59">The CSP Meta Tag</h2>
+
+<p>CSP directives are specified by a <code>meta</code> tag, like so:</p>
+
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #007700">&lt;meta</span> <span style="color: #0000CC">http-equiv=</span><span style="background-color: #fff0f0">&quot;Content-Security-Policy&quot;</span>
+    <span style="color: #0000CC">contents=</span><span style="background-color: #fff0f0">&quot;...&quot;</span><span style="color: #007700">&gt;</span>
+</pre></div>
+</p>
+
+<h2 id="csp-directives:e5b6aa8725667982def880fbba897e59">CSP Directives</h2>
+
+<p>CSP controls what sources are permitted and what sources aren&rsquo;t. Because there are many different types of assets our page might need, CSP also allows us to be very granular with respect to what types of assets can be loaded from which sources. There&rsquo;s several directives available, like so:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">directive</th>
+<th align="left">description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>img-src</code></td>
+<td align="left">Image sources (like PNG, JPG, SVG, etc.)</td>
+</tr>
+
+<tr>
+<td align="left"><code>media-src</code></td>
+<td align="left">Video/audio sources</td>
+</tr>
+
+<tr>
+<td align="left"><code>script-src</code></td>
+<td align="left">Script sources</td>
+</tr>
+
+<tr>
+<td align="left"><code>style-src</code></td>
+<td align="left">Stylesheet sources</td>
+</tr>
+
+<tr>
+<td align="left"><code>font-src</code></td>
+<td align="left">Webfont sources</td>
+</tr>
+
+<tr>
+<td align="left"><code>default-src</code></td>
+<td align="left">Fallback for most directives</td>
+</tr>
+</tbody>
+</table>
+
+<p>This isn&rsquo;t the entire list of available directives, so you’ll want to check out the links at the head of this article for all the possibilities, but this should give you a pretty good idea of the granularity of CSP.</p>
+
+<p>Furthermore, it&rsquo;s important to note that there is a hierarchy of sorts — if you don&rsquo;t specify <code>img-src</code>, but do specify <code>default-src</code>, then <code>default-src</code> is used instead. If you specify both, however, the values won&rsquo;t inherit from <code>default-src</code>.</p>
+
+<h2 id="csp-sources:e5b6aa8725667982def880fbba897e59">CSP Sources</h2>
+
+<p>A source is either a URL or a special keyword. A URL can look like this:</p>
+
+<ul>
+<li><code>http://www.example.com</code> &ndash; allow resources from this domain, including any pages on it</li>
+<li><code>http://*.example.com</code> &ndash; allow resources from this domain, including any subdomains.</li>
+<li><code>*://*.example.com</code> &ndash; allow resources from this domain, any subdomains, <em>and</em> any URL scheme</li>
+<li><code>*://*.example.com:*</code> &ndash; allow resources from this domain, any subdomains, any URL scheme, <strong>and</strong> any port.</li>
+</ul>
+
+<blockquote>
+<p><strong>NOTE</strong>: Although it might appear that you can use wildcards anywhere, you can&rsquo;t. You can only use a wildcard for the URL scheme, the left part of the domain, and the port.</p>
+</blockquote>
+
+<p>There are four keywords that you can also use:</p>
+
+<ul>
+<li><code>'none'</code> &ndash; indicates that no source is permitted. This disables access for the specified directive.</li>
+<li><code>'self'</code> &ndash; indicates that local resources are permitted.</li>
+<li><code>'unsafe-inline'</code> &ndash; permits inline scripts/styles</li>
+<li><code>'unsave-eval'</code> &ndash; permits <code>eval()</code> and its ilk.</li>
+</ul>
+
+<h2 id="csp-syntax:e5b6aa8725667982def880fbba897e59">CSP Syntax</h2>
+
+<p>Each directive can have any number of sources. Each one is separated by a space. The entire set of directives are separated by semicolons. This makes things a little difficult to read, but that&rsquo;s the way it&rsquo;s built. For example, here&rsquo;s a sample CSP tag:</p>
+
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #007700">&lt;meta</span> <span style="color: #0000CC">http-equiv=</span><span style="background-color: #fff0f0">&quot;Content-Security-Policy&quot;</span> 
+ <span style="color: #0000CC">content=</span><span style="background-color: #fff0f0">&quot;default-src &#39;self&#39; https://*.example.com;</span>
+<span style="background-color: #fff0f0">              img-src &#39;self&#39; https://images.example.com data:;</span>
+<span style="background-color: #fff0f0">           script-src &#39;self&#39; https://scripts.example.com&quot;</span><span style="color: #007700">&gt;</span>
+</pre></div>
+</p>
+
+<p>This isn&rsquo;t a terribly useful CSP, but it does illustrate the syntax.</p>
+
+<h2 id="common-cordova-uses:e5b6aa8725667982def880fbba897e59">Common Cordova Uses</h2>
+
+<p>With all that out of the way, here&rsquo;s some common tasks you might need to perform  in a Cordova app — along with the directives you need to specify to permit them:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">task</th>
+<th align="center">directive</th>
+<th align="center">value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">iOS Support</td>
+<td align="center"><code>default-src</code></td>
+<td align="center"><code>gap://*</code> (1)</td>
+</tr>
+
+<tr>
+<td align="left">Allow web socket communication</td>
+<td align="center"><code>default-src</code></td>
+<td align="center"><code>ws://*</code> (2)</td>
+</tr>
+
+<tr>
+<td align="left">Execute / load local resources</td>
+<td align="center"><code>default-src</code></td>
+<td align="center"><code>'self'</code> (3)</td>
+</tr>
+
+<tr>
+<td align="left">Load <code>data:</code> images</td>
+<td align="center"><code>img-src</code></td>
+<td align="center"><code>data:</code></td>
+</tr>
+
+<tr>
+<td align="left">Permit <code>eval()</code></td>
+<td align="center"><code>script-src</code></td>
+<td align="center"><code>'unsafe-eval'</code>   (4)</td>
+</tr>
+
+<tr>
+<td align="left">Permit inline scripting</td>
+<td align="center"><code>script-src</code></td>
+<td align="center"><code>'unsafe-inline'</code> (5)</td>
+</tr>
+
+<tr>
+<td align="left">Permit inline styles</td>
+<td align="center"><code>style-src</code></td>
+<td align="center"><code>'unsafe-inline'</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Notes:</p>
+
+<ol>
+<li>This is critically important for your Cordova/PhoneGap apps running on iOS. Without it, plugins and Cordova events won&rsquo;t work.</li>
+<li>If you use web sockets for communication, you’ll need to allow this URL scheme. Our example allows communication with any host on any port, but ideally you&rsquo;ll be more specific.</li>
+<li>You should always have <code>'self'</code> in any directive so that you can load local resources. If you override any other directive, you’ll need to specify <code>'self'</code> there too.</li>
+<li>Only allow <code>eval()</code> if you absolutely must do so. Some plugins, libraries and frameworks will require it, but if you can avoid it, this should be avoided, as it can be a huge security hole.</li>
+<li>Only allow inline scripting if you absolutely must. Again, some frameworks and such might require it, but it&rsquo;s a huge security risk if you’re injecting dynamic HTML using untrusted data.</li>
+</ol>
+
+<h2 id="what-about-browsersync:e5b6aa8725667982def880fbba897e59">What about BrowserSync?</h2>
+
+<p>I really, really, really like to use BrowserSync when rapidly iterating, especially because it lets me have the same content loaded across multiple devices, including the desktop. When I make changes, the content can automatically be updated.</p>
+
+<p>In order to use BrowserSync, however, you need to enable certain CSP rules. These should only be enabled during development, unless you’re using another framework or plugin that requires them:</p>
+
+<ul>
+<li>Add <code>ws://*</code> to the <code>default-src</code> directive — BrowserSync communicates over web sockets.</li>
+<li>Add <code>'unsafe-inline'</code> to the <code>script-src</code> directive.</li>
+</ul>
+
+<blockquote>
+<p>You can also use <code>phonegap serve</code> and the PhoneGap Developer app for a similar experience. However, I&rsquo;ve only had limited luck in getting this to work well within my typical build setup (which has all sorts of stuff going on!), while BrowserSync works a peach.</p>
+</blockquote>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://kerrishotts.github.io/" style="background-image: url(http://kerrishotts.github.io/images/avatar.jpg)"><span class="hidden">Kerri Shotts's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="http://kerrishotts.github.io/">Kerri Shotts</a></h4>
+  
+  <p>Kerri Shotts is a mobile hybrid app developer, an author of several tech books on Cordova, and a photographer.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Southern Illinois</span>
+    
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Cordova%2fPhoneGap%20%26%20CSP%20%28QuickTip%29&amp;url=http%3a%2f%2fkerrishotts.github.io%2fpost%2fquicktip%2f2015%2f11%2f25-cordova-csp%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkerrishotts.github.io%2fpost%2fquicktip%2f2015%2f11%2f25-cordova-csp%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fkerrishotts.github.io%2fpost%2fquicktip%2f2015%2f11%2f25-cordova-csp%2f&amp;description=Cordova%2fPhoneGap%20%26%20CSP%20%28QuickTip%29"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fkerrishotts.github.io%2fpost%2fquicktip%2f2015%2f11%2f25-cordova-csp%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'kerrishotts';
+  var disqus_url = 'http:\/\/kerrishotts.github.io\/post\/quicktip\/2015\/11\/25-cordova-csp\/';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Kerri Shotts</a> Copyright © 2015 Kerri Shotts. All Rights Reserved.</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://kerrishotts.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://kerrishotts.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://kerrishotts.github.io/js/index.js"></script>
+    
+</body>
+</html>
+
