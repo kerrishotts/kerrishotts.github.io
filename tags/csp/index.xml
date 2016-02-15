@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Csp on Kerri Shotts</title>
-    <link>//kerrishotts.github.io/tags/csp/</link>
+    <link>https://kerrishotts.github.io/tags/csp/</link>
     <description>Recent content in Csp on Kerri Shotts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
     <lastBuildDate>Wed, 25 Nov 2015 22:29:58 -0600</lastBuildDate>
-    <atom:link href="//kerrishotts.github.io/tags/csp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kerrishotts.github.io/tags/csp/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Cordova/PhoneGap &amp; CSP (QuickTip)</title>
-      <link>//kerrishotts.github.io/post/quicktip/2015/11/25-cordova-csp/</link>
+      <link>https://kerrishotts.github.io/post/quicktip/2015/11/25-cordova-csp/</link>
       <pubDate>Wed, 25 Nov 2015 22:29:58 -0600</pubDate>
       
-      <guid>//kerrishotts.github.io/post/quicktip/2015/11/25-cordova-csp/</guid>
+      <guid>https://kerrishotts.github.io/post/quicktip/2015/11/25-cordova-csp/</guid>
       <description>
 
 &lt;p&gt;I just wanted to share a few tips regarding the Content Security Policy meta tag that we need to use in PhoneGap/Cordova apps. I&amp;rsquo;m not going to cover &lt;em&gt;all&lt;/em&gt; the gory details &amp;mdash; for that, there are plenty of great sites.&lt;/p&gt;

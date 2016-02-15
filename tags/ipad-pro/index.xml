@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ipad Pro on Kerri Shotts</title>
+    <link>https://kerrishotts.github.io/tags/ipad-pro/</link>
+    <description>Recent content in Ipad Pro on Kerri Shotts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 12 Jan 2016 16:37:15 -0600</lastBuildDate>
+    <atom:link href="https://kerrishotts.github.io/tags/ipad-pro/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Thoughts on the iPad Pro</title>
+      <link>https://kerrishotts.github.io/post/2016/01/12-iPad-Pro/</link>
+      <pubDate>Tue, 12 Jan 2016 16:37:15 -0600</pubDate>
+      
+      <guid>https://kerrishotts.github.io/post/2016/01/12-iPad-Pro/</guid>
+      <description>
+
+&lt;p&gt;I purchased an iPad Pro just before the end of 2015. As a mobile app developer, I needed to ensure
+that my apps would work on the larger screen, and although one can test this to some degree in the
+simulators, there really is no substitute for having a physical device in hand.&lt;/p&gt;
+
+&lt;p&gt;Keeping in mind, then, that I&amp;rsquo;ve only had the device for a couple weeks, I thought I&amp;rsquo;d give some
+thoughts on what I think of the device.&lt;/p&gt;
+
+&lt;h2 id=&#34;initial-impressions:36bbfacf45c44a64d8070c8ca8014ac0&#34;&gt;Initial impressions&lt;/h2&gt;
+
+&lt;p&gt;Here are some my initial impressions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&amp;ldquo;&lt;em&gt;Damn&lt;/em&gt;, this thing is big!&amp;rdquo; was probably my first thought upon seeing the device in person. And
+it is &amp;ndash; 12.9&amp;rdquo; diagonal tells the tale, but it&amp;rsquo;s that much more imposing upon physically seeing
+it.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ldquo;It&amp;rsquo;s not that heavy, though!&amp;rdquo; came a few thoughts later, &lt;em&gt;after&lt;/em&gt; I&amp;rsquo;d purchased the device and
+pulled it out of the box. One doesn&amp;rsquo;t get a perfect feel for the weight, since the devices have
+anti-theft cables while in store.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ldquo;Does app xyz work?&amp;rdquo; was one of my next thoughts. Namely, do &lt;em&gt;my&lt;/em&gt; apps work? Of course, not all of
+them have been updated to use the larger screen (which is why I bought it), but I wanted to make
+sure that my apps didn&amp;rsquo;t crash or do something really crazy. Thankfully they didn&amp;rsquo;t do either.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ldquo;Finally, a keyboard I can type on!&amp;rdquo; The iPad Pro (in apps that support the full display
+resolution) supplies a much better on-screen keyboard. It has a number row, along with quick
+access to the symbols above those numbers. Having a full set of punctuation and brackets available
+is also nice. When in landscape, the keys are big enough I can type quite quickly with decent
+accuracy, too.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ldquo;Damn, this thing is big!&amp;rdquo; &amp;ndash; this is still my thought every time I pick it up. I&amp;rsquo;m not sure it&amp;rsquo;ll
+ever go away. On the other hand, it makes me feel like everything else is small by comparison,
+too, especially my iPad Mini 4.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;things-i-don-t-like:36bbfacf45c44a64d8070c8ca8014ac0&#34;&gt;Things I don&amp;rsquo;t like&lt;/h2&gt;
+
+&lt;p&gt;No device is perfect, and the iPad Pro certainly isn&amp;rsquo;t. Here&amp;rsquo;s some of the things I don&amp;rsquo;t like:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The home screen is entirely too sparse. With the increased resolution, Apple could easily have
+increased the number rows and columns available on screen.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Battery life is okay, but it doesn&amp;rsquo;t last quite as long as I&amp;rsquo;d like. Of course, I&amp;rsquo;m still getting
+to know it, so this is a bit skewed at the moment.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;iPhone-only apps look downright silly on this screen. Granted, they look silly at 2x on an iPad
+Air 2, but the iPad Pro doesn&amp;rsquo;t give an additional scaling factor &amp;ndash; instead it just adds more to
+the black border around the app. I don&amp;rsquo;t have many apps that are like this, thankfully!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Thoughts on the Apple Pencil</title>
+      <link>https://kerrishotts.github.io/post/2016/01/12-Apple-Pencil/</link>
+      <pubDate>Tue, 12 Jan 2016 15:12:38 -0600</pubDate>
+      
+      <guid>https://kerrishotts.github.io/post/2016/01/12-Apple-Pencil/</guid>
+      <description>
+
+&lt;p&gt;Not too long ago I purchased an iPad Pro so that I could use it for development, and also verify
+that my existing applications worked correctly. Because it is a larger device, it is important to
+also verify that my apps can appropriately scale to the new screen size. This isn&amp;rsquo;t &lt;em&gt;difficult&lt;/em&gt;, and
+you can test this in a simulator, but my mantra has and always will be: &amp;ldquo;there is no substitute for
+testing on a real device&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;But this post isn&amp;rsquo;t about what I think about app development, necessarily (although it may generate
+some ideas), so enough of that.&lt;/p&gt;
+
+&lt;p&gt;Alongside the purchase, I ordered an Apple Pencil. These apparently are in short supply, but I found
+a Reddit post that led me to Walmart, and I was able to one online. It arrived a few days later. As
+such, I&amp;rsquo;ve only had it for about a week, but I can already say this: the combination of the iPad Pro
+and the Apple Pencil is absolutely brilliant.&lt;/p&gt;
+
+&lt;p&gt;So, what do I think of this (expensive) combination? Let&amp;rsquo;s get my cons out of the way first.&lt;/p&gt;
+
+&lt;h2 id=&#34;things-i-don-t-like:68efd82088bb44c96bfc68b11a42be18&#34;&gt;Things I don&amp;rsquo;t like&lt;/h2&gt;
+
+&lt;p&gt;These will be in no particular order:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;I feel like I&amp;rsquo;m going to lose the thing!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;In Apple&amp;rsquo;s infinite wisdom, the Apple Pencil itself isn&amp;rsquo;t magnetized in any way. You&amp;rsquo;d think that
+the magnets already present in the iPad Pro (and related covers) would be a fantastic place to
+hold the Pencil while it is not in use.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Nor is there any dedicated place to hold an Apple Pencil, on the iPad Pro or with a cover. There
+are some third party solutions cropping up though.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The finish is very glossy and slick. If you like more grip, the Pencil may disappoint you.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I have no problems with how the device charges. There&amp;rsquo;s a lightning connector at the top that you
+can plug into your iPad Pro for quick charges, and there&amp;rsquo;s an adapter that you can attach so that
+you can use existing lightning cables. Both ways work, though I&amp;rsquo;m using the latter option the
+most. In order to charge, though, one detaches the top of the Pencil &amp;ndash; and there&amp;rsquo;s no way to
+ensure that it stays connected to the Pencil at all. Losing it wouldn&amp;rsquo;t be the worst thing in the
+world (#FirstWorldProblems, anywone?), but it seems to me like it should have some sort of tether
+so that it wouldn&amp;rsquo;t be easily lost.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I can only imagine that at some point in the distant future that Apple would use inductive
+charging for the Pencil, so that this point would become moot. But for now, it stands.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;It&amp;rsquo;s long and reasonably thick. It&amp;rsquo;s a little heavy for long periods of use, although not so much
+that I&amp;rsquo;m not using it. I could actually stand to have a thicker grip (but I like thick pens), but
+I could easily imagine others who might like something a little thinner and shorter.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I feel like I&amp;rsquo;m skating on ice. Although not specific to the Apple Pencil, it&amp;rsquo;s something you will
+have to get used to when drawing. I never realized how much I depended upon the natural friction
+of pen and paper when stopping strokes &amp;ndash; and so I was overshooting a little bit!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;things-i-love:68efd82088bb44c96bfc68b11a42be18&#34;&gt;Things I love&lt;/h2&gt;
+
+&lt;p&gt;Again, in no particular order:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;My handwriting is translated very nicely to the device, warts and all.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;A few years back at a conference, I was using an old HP tablet with a stylus, and the
+handwriting was a pain in the rear. Latency was awful, as was the actual ability to read the
+handwriting later. (Handwriting recognition wasn&amp;rsquo;t so hot either.) Of course, part of this was due
+to my lousy handwriting, but it was never a great experience. I found myself wishing I could go
+back in time and give myself &lt;em&gt;this&lt;/em&gt; setup. I can actually enjoy writing on this tablet!&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Very few apps support handwriting recognition, but there&amp;rsquo;s a keyboard that does a pretty decent
+job at reading my horrific script called &lt;a href=&#34;https://appsto.re/us/yl_G3.i&#34;&gt;MyScript Stylus - Handwriting
+Keyboard&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Latency is very low.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Having any latency at all during drawing or writing completely destroys the experience for me.
+I guess I&amp;rsquo;m just a bit funny that way, but it&amp;rsquo;s one reason why I&amp;rsquo;ve never much liked using
+a stylus before.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The amount of latency is very dependent upon the app you&amp;rsquo;re using, and the selected tool you are
+drawing with. Any tool that draws thin lines should respond very quickly. On the other hand,
+a tool with a large, complex brush may still result in latency as the app calculates what should
+be rendered.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Pressure sensitivity is great!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;This was another reason I didn&amp;rsquo;t like most dumb stylii.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;There&amp;rsquo;s no real way to configure this, however, unless an app supports it.
+&lt;a href=&#34;https://appsto.re/us/ATHvz.i&#34;&gt;Procreate&lt;/a&gt; is a great app that does.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Palm rejection is (mostly) great, too.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;This was yet another reason I could never get on board with a dumb stylus &amp;ndash; the palm rejection
+in most apps just never worked that well for me. Maybe my hands are funny?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I&amp;rsquo;ve had a few times when an app misreads my palm, but not many.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;All I know is that drawing and writing is now &lt;strong&gt;SO&lt;/strong&gt; much easier when one can rest their palm on
+the device!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Precision is pretty good.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Unlike some stylii where the nib is this thick rubber black thing and you have no idea which
+pixels you&amp;rsquo;ll actually affect, the Pencil gives you a pretty good idea of what you&amp;rsquo;ll edit.
+Namely: the pixels under the point.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;It&amp;rsquo;s not perfect &amp;ndash; various device orientations seem to yield slightly different results for me.
+But it&amp;rsquo;s always within a couple of pixels.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I can actually fill tight areas with a brush with precision (assuming I know how the brush
+itself reacts).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The fact that the screen is laminated to the glass helps here too, since there&amp;rsquo;s not a lot of
+space between the Pencil&amp;rsquo;s point and the display. The distance here is not &lt;em&gt;zero&lt;/em&gt;, however, so you
+can notice it a little, but it&amp;rsquo;s not nearly enough to throw me, and generally it disappears
+quickly as you use the device.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Battery life is quite good.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;I don&amp;rsquo;t think anything ever lasts quite as long as the manufacturer claims, but still, on a full
+charge, the Apple Pencil should last a day&amp;rsquo;s worth of work.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Charging itself is also pretty quick.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The battery indicator is in the notification center in case you&amp;rsquo;re ever curious.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;app-support:68efd82088bb44c96bfc68b11a42be18&#34;&gt;App support&lt;/h2&gt;
+
+&lt;p&gt;Technically the Pencil will work in every app &amp;ndash; it&amp;rsquo;ll just act as a more precise finger. Of course,
+to gain pressure sensitivity and tilt support, the app needs to be properly coded to recognize the
+Pencil. Some apps are better at this than others, of course.&lt;/p&gt;
+
+&lt;p&gt;So far I&amp;rsquo;ve used these apps consistently:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://appsto.re/us/ATHvz.i&#34;&gt;Procreate&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;There are some really nice brushes, although some do introduce additional latency.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Supports layers &lt;em&gt;and&lt;/em&gt; blend modes. This is nice when you&amp;rsquo;re into adult coloring &amp;ndash; you can find
+a black-and-white line drawing, paste it into a layer and set the blend mode to &amp;ldquo;Linear Burn&amp;rdquo;, and
+then color to your heart&amp;rsquo;s content on an additional layer below the imported image.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://appsto.re/us/b8DAH.i&#34;&gt;Concepts&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Although portions of the UI are a little clunky (to me), this app offers an infinite canvas, which is
+super handy when doodling app ideas, drawing quick mock up sketches, and the like.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;You can draw precise shapes, which is very handy.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;This is one of the few apps that let me snap such shapes to a grid.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;One of the coolest features (I think) is the ability to select anything you&amp;rsquo;ve drawn and easily
+move it somewhere else (including snapping to the grid). Everything is selectable &lt;em&gt;and&lt;/em&gt; editable.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Adobe &lt;a href=&#34;https://appsto.re/us/m52aY.i&#34;&gt;Photoshop Sketch&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://appsto.re/us/UvYt2.i&#34;&gt;Illustrator Draw&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Brushes are quite nice, and I like the fact that one can have several variations of the same
+brush available within a single tap (say, colors or stroke widths).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Layer support isn&amp;rsquo;t quite as expansive as Procreate, but there is easy support for tracing
+images, which is handy.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I love being able to draw precise shapes.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I just wish I could go back and edit my prior strokes (or move them around if need be)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;final-thoughts:68efd82088bb44c96bfc68b11a42be18&#34;&gt;Final thoughts&lt;/h2&gt;
+
+&lt;p&gt;One thing I&amp;rsquo;m completely flummoxed by is the fact that it&amp;rsquo;s next to impossible to get any of the
+above apps to open an SVG or Adobe Illustrator file directly. I understand some conversion might be
+necessary, but the apps don&amp;rsquo;t even make the attempt. And I can even let the non-Adobe apps slide,
+but Adobe? C&amp;rsquo;mon! Support SVG/AI as an import source!&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s no true replacement for Adobe Photoshop or Adobe Illustrator, either &amp;ndash; although Procreate
+comes close for Photoshop, and Concepts is very useful as well. So as great as the Pencil is, this
+isn&amp;rsquo;t going to replace your workflows in Adobe&amp;rsquo;s desktop applications (unless you remote to your
+machine). You&amp;rsquo;d think Adobe would release some tools that would match the &amp;ldquo;pro&amp;rdquo; moniker the iPad Pro
+receives &amp;ndash; maybe that&amp;rsquo;s in the wings. I sure hope so, because I&amp;rsquo;d love to have the power of
+PhotoShop / Illustrator on the iPad Pro.&lt;/p&gt;
+
+&lt;p&gt;Getting back to app development, the Pencil itself is going to be interesting to develop for,
+I think. Apparently the device &amp;ldquo;predicts&amp;rdquo; your movements, and the screen also increases the sampling
+rate. Handling both is a little more work than simply tracking a finger. Furthermore, I&amp;rsquo;ve not seen
+anything regarding Apple Pencil support in hybrid applications yet. I&amp;rsquo;ve not got any firm ideas in
+mind yet, but&amp;hellip; it&amp;rsquo;s only been a week, and my brain isn&amp;rsquo;t quite over the holidays yet, either!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

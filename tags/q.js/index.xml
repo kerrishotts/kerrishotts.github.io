@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Q.Js on Kerri Shotts</title>
-    <link>//kerrishotts.github.io/tags/q/index.js/</link>
+    <link>https://kerrishotts.github.io/tags/q/index.js/</link>
     <description>Recent content in Q.Js on Kerri Shotts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
     <lastBuildDate>Sat, 26 Oct 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//kerrishotts.github.io/tags/q.js/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kerrishotts.github.io/tags/q.js/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Using the File API without callbacks</title>
-      <link>//kerrishotts.github.io/post/2013/10/26/</link>
+      <link>https://kerrishotts.github.io/post/2013/10/26/</link>
       <pubDate>Sat, 26 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>//kerrishotts.github.io/post/2013/10/26/</guid>
+      <guid>https://kerrishotts.github.io/post/2013/10/26/</guid>
       <description>&lt;p&gt;So, it&amp;rsquo;s pretty much a given that working with the HTML5 API is a painful experience due to all those levels of callbacks. Even
 a simple operation turns into something unnecessarily complex, and so I present FileManager &amp;ndash; a simple wrapper around frequently
 used portions of the File API that uses Promises (or Q.js, specifically).&lt;/p&gt;

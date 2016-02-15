@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writing on Kerri Shotts</title>
-    <link>//kerrishotts.github.io/tags/writing/</link>
+    <link>https://kerrishotts.github.io/tags/writing/</link>
     <description>Recent content in Writing on Kerri Shotts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
     <lastBuildDate>Sun, 08 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//kerrishotts.github.io/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kerrishotts.github.io/tags/writing/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Writing a Technical Book, part 1</title>
-      <link>//kerrishotts.github.io/post/2014/06/08/</link>
+      <link>https://kerrishotts.github.io/post/2014/06/08/</link>
       <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//kerrishotts.github.io/post/2014/06/08/</guid>
+      <guid>https://kerrishotts.github.io/post/2014/06/08/</guid>
       <description>
 
 &lt;p&gt;This is part 1 of a series regarding technical writing.&lt;/p&gt;

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Handling large SQL Query results &middot;  Kerri Shotts" />
+  	<meta property="og:site_name" content="Kerri Shotts" />
+  	<meta property="og:url" content="https://kerrishotts.github.io/post/quicktip/2015/12/15-sqlite/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2015-12-15T17:53:21-06:00" />
+
+    
+    <meta property="og:article:tag" content="cordova" />
+    
+    <meta property="og:article:tag" content="sqlite" />
+    
+    <meta property="og:article:tag" content="cordova-sqlite-ext" />
+    
+    <meta property="og:article:tag" content="quicktip" />
+    
+    
+
+  <title>
+     Handling large SQL Query results &middot;  Kerri Shotts
+  </title>
+
+    <meta name="description" content="Thoughts from beyond..." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://kerrishotts.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="https://kerrishotts.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://kerrishotts.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://kerrishotts.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://kerrishotts.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Kerri Shotts" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.14" />
+
+    <link rel="canonical" href="https://kerrishotts.github.io/post/quicktip/2015/12/15-sqlite/" />
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://kerrishotts.github.io/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://kerrishotts.github.io/page/about/">About Kerri</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://kerrishotts.github.io/page/contact/">Contact Kerri</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://kerrishotts.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head" style="background-image: url(https://kerrishotts.github.io/images/block-code-large.png)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://kerrishotts.github.io/"><img src="https://kerrishotts.github.io/images/avatar.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Handling large SQL Query results</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2015-12-15T17:53:21-06:00">
+            Dec 15, 2015
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://kerrishotts.github.io/tags/cordova/">#cordova</a></span>
+         
+          <span class="post-tag small"><a href="https://kerrishotts.github.io/tags/sqlite/">#sqlite</a></span>
+         
+          <span class="post-tag small"><a href="https://kerrishotts.github.io/tags/cordova-sqlite-ext/">#cordova-sqlite-ext</a></span>
+         
+          <span class="post-tag small"><a href="https://kerrishotts.github.io/tags/quicktip/">#quicktip</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <p>Recently I encountered an odd problem while working on an app for the current book I&rsquo;m writing. The app worked as-is, but I wanted
+to improve the startup performance by using a SQLite database rather than using an XHR to load a large JSON file. I added the
+<a href="https://github.com/litehelpers/cordova-sqlite-ext">cordova-sqlite-ext plugin</a> because it had built-in support for pre-populated
+databases. I also have <a href="https://github.com/kerrishotts/Mastering-PhoneGap-Code-Package/blob/master/logology-v12/src/www/js/lib/WebSQL.js">a promise-based wrapper that I like to use</a>.</p>
+
+<p>I should mention that both the JSON and resulting SQLite database are large &ndash; the JSON file is 27MiB and the SQLite database is
+45MiB. As such, an unlimited result set from a naive query could return a lot of rows &ndash; nearly 150,000.</p>
+
+<p>The naive code, by the way, looked something like this:</p>
+
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">db.query({sql<span style="color: #333333">:</span> <span style="background-color: #fff0f0">&quot;select lemma from lemmas order by lemma&quot;</span>})
+  .then((r) <span style="color: #333333">=&gt;</span> { <span style="color: #008800; font-weight: bold">this</span>.sortedIndex <span style="color: #333333">=</span> r.rows.map(r) <span style="color: #333333">=&gt;</span> r.lemma })
+  ...
+</pre></div>
+</p>
+
+<p>This looks like it should work, and it did work in Safari, in Chrome, and in the iOS simulator. However, this failed miserably on
+a physical device (yet another example of why it is always important to test on physical devices).</p>
+
+<p>Unfortunately, there was no error. There was nothing interesting on the console. The app just didn&rsquo;t work right. I investigated
+further, and it turned out that the above promise wasn&rsquo;t resolving correctly. What blew my mind was that even unrelated promises
+failed to resolve once this particular piece of code was executed. It took an <code>alert(1);</code> to get any promises to work again.</p>
+
+<p>Today I took a closer look and stepped through the native code, and it suddenly occurred to me: the plugin has to transfer a lot of
+data over the Cordova bridge. Although querying the SQLite database is a lot faster than iterating over a JSON object, the latter
+stays entirely within the JavaScript context. The plugin, on the other hand, was having to transfer data between the native and
+hybrid contexts. Furthermore, my wrapper converts the rows in the result set into a normal Array. While this makes for easier
+processing later (I can use <code>map</code> and the like), this also takes time and memory.</p>
+
+<p>I tried a shorter query that would return one row. <strong>BOOM</strong>, it worked. It was now obvious that the problem was related to the
+amount of data being selected. So I tried some more numbers. I was able to successfully load up to one-hundred thousand records at
+once, but the more records I loaded, the more I recognized a problem: the app would become increasingly unresponsive. As far as
+I can tell, this is due in part to the data transfer and also due the conversion of the rows into an array by my wrapper, and
+obviously the more data one has to transfer and convert, the longer it takes.</p>
+
+<p>At some point after one-hundred thousand records, the process breaks down completely, and the data is never returned to the promise.
+As such, the promise is just sitting there, twiddling its thumbs, waiting for data that will never arrive.</p>
+
+<p>So how can we fix this? Turns out, rather easily. SQLite understands the <code>LIMIT</code> keyword, which allows us to break up a query into
+smaller segments. Typically this might be used for paging a result set, but it works for our purposes as well. This is what the
+final result looks like:</p>
+
+<p><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">db.query({sql<span style="color: #333333">:</span> <span style="background-color: #fff0f0">&quot;select count(*) as numLemmas from lemmas&quot;</span>}).then((r) <span style="color: #333333">=&gt;</span> {
+    <span style="color: #008800; font-weight: bold">const</span> ITEMS_PER <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10000</span>;
+    <span style="color: #008800; font-weight: bold">let</span> numLemmas <span style="color: #333333">=</span> r.rows[<span style="color: #0000DD; font-weight: bold">0</span>].numLemmas;
+    <span style="color: #008800; font-weight: bold">let</span> p <span style="color: #333333">=</span> Promise.resolve();
+    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #008800; font-weight: bold">let</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; i <span style="color: #333333">&lt;</span> numLemmas; i <span style="color: #333333">+=</span> ITEMS_PER) {
+        p <span style="color: #333333">=</span> p.then(() <span style="color: #333333">=&gt;</span> db.query({sql<span style="color: #333333">:</span> <span style="background-color: #fff0f0">&quot;select lemma from lemmas order by lemma limit ?, ?&quot;</span>, binds<span style="color: #333333">:</span>[i, ITEMS_PER]}))
+             .then((r) <span style="color: #333333">=&gt;</span> <span style="color: #008800; font-weight: bold">this</span>.sortedIndex.push(...r.rows.map((r) <span style="color: #333333">=&gt;</span> r.lemma)));
+    }
+    <span style="color: #008800; font-weight: bold">return</span> p;
+})...
+</pre></div>
+</p>
+
+<p>This is what the above code does:</p>
+
+<ul>
+<li><p>Selects the number of records that the query will return</p></li>
+
+<li><p>Creates a series of promises that process only a portion of the total query, in 10,000 record blocks.</p>
+
+<ul>
+<li>The key here is <code>LIMIT ?, ?</code>. The first parameter is the starting position in the result set, and the second is the number of
+records that are returned.</li>
+</ul></li>
+
+<li><p>Pushes the results into the target array.</p></li>
+</ul>
+
+<p>Of course, for a query that returns nearly 150,000 records, this has to generate 15 queries. Interestingly enough, however, the
+return is nearly instantaneous, and doesn&rsquo;t ever block the app itself, so everything remains responsive, and should the query ever
+return even <em>more</em> rows, the app will still continue to function correctly.</p>
+
+<blockquote>
+<p>There is, of course, an upper limit to how much we can store in an array, of course. That said, JavaScript doesn&rsquo;t do terribly
+badly here &ndash; A sorted 150,000 array of words doesn&rsquo;t take up much space at all. Right now the app is consuming around 20MiB of
+RAM using Xcode&rsquo;s profiler, and that&rsquo;s with a full DOM and a few views on screen. While this might be tight on devices with
+a ridiculously low amount of RAM, it&rsquo;s more than workable on any device within the last three or so years.</p>
+</blockquote>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="https://kerrishotts.github.io/" style="background-image: url(https://kerrishotts.github.io/images/avatar.jpg)"><span class="hidden">Kerri Shotts's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="https://kerrishotts.github.io/">Kerri Shotts</a></h4>
+  
+  <p>Kerri Shotts is a mobile hybrid app developer, an author of several tech books on Cordova, and a photographer.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Southern Illinois</span>
+    
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Handling%20large%20SQL%20Query%20results&amp;url=https%3a%2f%2fkerrishotts.github.io%2fpost%2fquicktip%2f2015%2f12%2f15-sqlite%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkerrishotts.github.io%2fpost%2fquicktip%2f2015%2f12%2f15-sqlite%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fkerrishotts.github.io%2fpost%2fquicktip%2f2015%2f12%2f15-sqlite%2f&amp;description=Handling%20large%20SQL%20Query%20results"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fkerrishotts.github.io%2fpost%2fquicktip%2f2015%2f12%2f15-sqlite%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'kerrishotts';
+  var disqus_url = 'https:\/\/kerrishotts.github.io\/post\/quicktip\/2015\/12\/15-sqlite\/';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Kerri Shotts</a> Copyright © 2015 Kerri Shotts. All Rights Reserved.</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://kerrishotts.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://kerrishotts.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://kerrishotts.github.io/js/index.js"></script>
+    
+</body>
+</html>
+

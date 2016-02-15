@@ -7,7 +7,7 @@
 
   	<meta property="og:title" content=" Q.Js &middot;  Kerri Shotts" />
   	<meta property="og:site_name" content="Kerri Shotts" />
-  	<meta property="og:url" content="//kerrishotts.github.io/tags/q/index.js/" />
+  	<meta property="og:url" content="https://kerrishotts.github.io/tags/q/index.js/" />
 
     
     <meta property="og:type" content="website" />
@@ -22,25 +22,25 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="//kerrishotts.github.io/images/favicon.ico">
-	  <link rel="apple-touch-icon" href="//kerrishotts.github.io/images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="https://kerrishotts.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="https://kerrishotts.github.io/images/apple-touch-icon.png" />
 
-    <link rel="stylesheet" type="text/css" href="//kerrishotts.github.io/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="//kerrishotts.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://kerrishotts.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://kerrishotts.github.io/css/nav.css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
 
 
     
       
-          <link href="//kerrishotts.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Kerri Shotts" />
+          <link href="https://kerrishotts.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Kerri Shotts" />
       
       
-        <link href="//kerrishotts.github.io/tags/q.js/index.xml" rel="alternate" type="application/rss+xml" title="Q.Js &middot; Kerri Shotts" />
+        <link href="https://kerrishotts.github.io/tags/q.js/index.xml" rel="alternate" type="application/rss+xml" title="Q.Js &middot; Kerri Shotts" />
       
     
     <meta name="generator" content="Hugo 0.14" />
 
-    <link rel="canonical" href="//kerrishotts.github.io/tags/q/index.js/" />
+    <link rel="canonical" href="https://kerrishotts.github.io/tags/q/index.js/" />
 
     
 
@@ -59,23 +59,23 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="//kerrishotts.github.io/">Home</a>
+            	<a href="https://kerrishotts.github.io/">Home</a>
             </li>
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="//kerrishotts.github.io/page/about/">About Kerri</a>
+            	<a href="https://kerrishotts.github.io/page/about/">About Kerri</a>
             </li>
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="//kerrishotts.github.io/page/contact/">Contact Kerri</a>
+            	<a href="https://kerrishotts.github.io/page/contact/">Contact Kerri</a>
             </li>
         
     </ul>
     
     
-    <a class="subscribe-button icon-feed" href="//kerrishotts.github.io/tags/q.js/index.xml">Subscribe</a>
+    <a class="subscribe-button icon-feed" href="https://kerrishotts.github.io/tags/q.js/index.xml">Subscribe</a>
     
 </div>
 <span class="nav-cover"></span>
@@ -90,7 +90,7 @@
 
     <nav class="main-nav overlay clearfix">
       
-        <a class="blog-logo" href="//kerrishotts.github.io/"><img src="//kerrishotts.github.io/images/avatar.jpg" alt="Home" /></a>
+        <a class="blog-logo" href="https://kerrishotts.github.io/"><img src="https://kerrishotts.github.io/images/avatar.jpg" alt="Home" /></a>
       
       
           <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
@@ -122,37 +122,37 @@
 	   
 <article class="post post">
     <header class="post-header">
-        <h2 class="post-title"><a href="//kerrishotts.github.io/post/2013/10/26">Using the File API without callbacks</a></h2>
+        <h2 class="post-title"><a href="https://kerrishotts.github.io/post/2013/10/26">Using the File API without callbacks</a></h2>
     </header>
     <section class="post-excerpt">
         <p><p>So, it&rsquo;s pretty much a given that working with the HTML5 API is a painful experience due to all those levels of callbacks. Even
 a simple operation turns into something unnecessarily complex, and so I present FileManager &ndash; a simple wrapper around frequently
 used portions of the File API that uses Promises (or Q.js, specifically).</p>
- <a class="read-more" href="//kerrishotts.github.io/post/2013/10/26">&raquo;</a></p>
+ <a class="read-more" href="https://kerrishotts.github.io/post/2013/10/26">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
         
-            <img class="author-thumb" src="//kerrishotts.github.io/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <img class="author-thumb" src="https://kerrishotts.github.io/images/avatar.jpg" alt="Author image" nopin="nopin" />
         
         
             Kerri Shotts
         
         on
             
-                <a href="//kerrishotts.github.io/tags/cordova/">#cordova</a>,
+                <a href="https://kerrishotts.github.io/tags/cordova/">#cordova</a>,
             
-                <a href="//kerrishotts.github.io/tags/promises/">#promises</a>,
+                <a href="https://kerrishotts.github.io/tags/promises/">#promises</a>,
             
-                <a href="//kerrishotts.github.io/tags/file-api/">#file api</a>,
+                <a href="https://kerrishotts.github.io/tags/file-api/">#file api</a>,
             
-                <a href="//kerrishotts.github.io/tags/phonegap/">#phonegap</a>,
+                <a href="https://kerrishotts.github.io/tags/phonegap/">#phonegap</a>,
             
-                <a href="//kerrishotts.github.io/tags/q.js/">#q.js</a>,
+                <a href="https://kerrishotts.github.io/tags/q.js/">#q.js</a>,
             
-                <a href="//kerrishotts.github.io/tags/yasmf/">#yasmf</a>,
+                <a href="https://kerrishotts.github.io/tags/yasmf/">#yasmf</a>,
             
-                <a href="//kerrishotts.github.io/tags/filemanager/">#filemanager</a>,
+                <a href="https://kerrishotts.github.io/tags/filemanager/">#filemanager</a>,
             
         
         <time class="post-date" datetime="2013-10-26T00:00:00Z">
@@ -180,9 +180,9 @@ used portions of the File API that uses Promises (or Q.js, specifically).</p>
         
     </footer>
     </div>
-    <script type="text/javascript" src="//kerrishotts.github.io/js/jquery.js"></script>
-    <script type="text/javascript" src="//kerrishotts.github.io/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="//kerrishotts.github.io/js/index.js"></script>
+    <script type="text/javascript" src="https://kerrishotts.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://kerrishotts.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://kerrishotts.github.io/js/index.js"></script>
     
 </body>
 </html>

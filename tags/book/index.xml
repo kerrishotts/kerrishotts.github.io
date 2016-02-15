@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Book on Kerri Shotts</title>
-    <link>//kerrishotts.github.io/tags/book/</link>
+    <link>https://kerrishotts.github.io/tags/book/</link>
     <description>Recent content in Book on Kerri Shotts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
     <lastBuildDate>Sun, 01 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//kerrishotts.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kerrishotts.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Phonegap 3.x Mobile Application Development Hotshot Released</title>
-      <link>//kerrishotts.github.io/post/2014/06/01/</link>
+      <link>https://kerrishotts.github.io/post/2014/06/01/</link>
       <pubDate>Sun, 01 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//kerrishotts.github.io/post/2014/06/01/</guid>
+      <guid>https://kerrishotts.github.io/post/2014/06/01/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m so proud to announce that my new book, &lt;em&gt;PhoneGap 3.x Mobile Application Development Hotshot&lt;/em&gt; is now available for
 purchase. It&amp;rsquo;s an update to my earlier book, and it has been modernized and updated for Cordova 3.x. Although the title
 includes &amp;ldquo;PhoneGap&amp;rdquo; in the name, it generally uses the Cordova Command Line Interface (&amp;ldquo;PhoneGap&amp;rdquo; is more recognizable

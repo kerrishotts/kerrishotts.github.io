@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sqlite on Kerri Shotts</title>
+    <link>https://kerrishotts.github.io/tags/sqlite/</link>
+    <description>Recent content in Sqlite on Kerri Shotts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2015 Kerri Shotts. All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 15 Dec 2015 17:53:21 -0600</lastBuildDate>
+    <atom:link href="https://kerrishotts.github.io/tags/sqlite/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Handling large SQL Query results</title>
+      <link>https://kerrishotts.github.io/post/quicktip/2015/12/15-sqlite/</link>
+      <pubDate>Tue, 15 Dec 2015 17:53:21 -0600</pubDate>
+      
+      <guid>https://kerrishotts.github.io/post/quicktip/2015/12/15-sqlite/</guid>
+      <description>&lt;p&gt;Recently I encountered an odd problem while working on an app for the current book I&amp;rsquo;m writing. The app worked as-is, but I wanted
+to improve the startup performance by using a SQLite database rather than using an XHR to load a large JSON file. I added the
+&lt;a href=&#34;https://github.com/litehelpers/cordova-sqlite-ext&#34;&gt;cordova-sqlite-ext plugin&lt;/a&gt; because it had built-in support for pre-populated
+databases. I also have &lt;a href=&#34;https://github.com/kerrishotts/Mastering-PhoneGap-Code-Package/blob/master/logology-v12/src/www/js/lib/WebSQL.js&#34;&gt;a promise-based wrapper that I like to use&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I should mention that both the JSON and resulting SQLite database are large &amp;ndash; the JSON file is 27MiB and the SQLite database is
+45MiB. As such, an unlimited result set from a naive query could return a lot of rows &amp;ndash; nearly 150,000.&lt;/p&gt;
+
+&lt;p&gt;The naive code, by the way, looked something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;db.query({sql&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;select lemma from lemmas order by lemma&amp;quot;&lt;/span&gt;})
+  .then((r) &lt;span style=&#34;color: #333333&#34;&gt;=&amp;gt;&lt;/span&gt; { &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;this&lt;/span&gt;.sortedIndex &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; r.rows.map(r) &lt;span style=&#34;color: #333333&#34;&gt;=&amp;gt;&lt;/span&gt; r.lemma })
+  ...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This looks like it should work, and it did work in Safari, in Chrome, and in the iOS simulator. However, this failed miserably on
+a physical device (yet another example of why it is always important to test on physical devices).&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, there was no error. There was nothing interesting on the console. The app just didn&amp;rsquo;t work right. I investigated
+further, and it turned out that the above promise wasn&amp;rsquo;t resolving correctly. What blew my mind was that even unrelated promises
+failed to resolve once this particular piece of code was executed. It took an &lt;code&gt;alert(1);&lt;/code&gt; to get any promises to work again.&lt;/p&gt;
+
+&lt;p&gt;Today I took a closer look and stepped through the native code, and it suddenly occurred to me: the plugin has to transfer a lot of
+data over the Cordova bridge. Although querying the SQLite database is a lot faster than iterating over a JSON object, the latter
+stays entirely within the JavaScript context. The plugin, on the other hand, was having to transfer data between the native and
+hybrid contexts. Furthermore, my wrapper converts the rows in the result set into a normal Array. While this makes for easier
+processing later (I can use &lt;code&gt;map&lt;/code&gt; and the like), this also takes time and memory.&lt;/p&gt;
+
+&lt;p&gt;I tried a shorter query that would return one row. &lt;strong&gt;BOOM&lt;/strong&gt;, it worked. It was now obvious that the problem was related to the
+amount of data being selected. So I tried some more numbers. I was able to successfully load up to one-hundred thousand records at
+once, but the more records I loaded, the more I recognized a problem: the app would become increasingly unresponsive. As far as
+I can tell, this is due in part to the data transfer and also due the conversion of the rows into an array by my wrapper, and
+obviously the more data one has to transfer and convert, the longer it takes.&lt;/p&gt;
+
+&lt;p&gt;At some point after one-hundred thousand records, the process breaks down completely, and the data is never returned to the promise.
+As such, the promise is just sitting there, twiddling its thumbs, waiting for data that will never arrive.&lt;/p&gt;
+
+&lt;p&gt;So how can we fix this? Turns out, rather easily. SQLite understands the &lt;code&gt;LIMIT&lt;/code&gt; keyword, which allows us to break up a query into
+smaller segments. Typically this might be used for paging a result set, but it works for our purposes as well. This is what the
+final result looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;db.query({sql&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;select count(*) as numLemmas from lemmas&amp;quot;&lt;/span&gt;}).then((r) &lt;span style=&#34;color: #333333&#34;&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;const&lt;/span&gt; ITEMS_PER &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;10000&lt;/span&gt;;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;let&lt;/span&gt; numLemmas &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; r.rows[&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;].numLemmas;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;let&lt;/span&gt; p &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; Promise.resolve();
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;let&lt;/span&gt; i &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt; numLemmas; i &lt;span style=&#34;color: #333333&#34;&gt;+=&lt;/span&gt; ITEMS_PER) {
+        p &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; p.then(() &lt;span style=&#34;color: #333333&#34;&gt;=&amp;gt;&lt;/span&gt; db.query({sql&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;select lemma from lemmas order by lemma limit ?, ?&amp;quot;&lt;/span&gt;, binds&lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt;[i, ITEMS_PER]}))
+             .then((r) &lt;span style=&#34;color: #333333&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;this&lt;/span&gt;.sortedIndex.push(...r.rows.map((r) &lt;span style=&#34;color: #333333&#34;&gt;=&amp;gt;&lt;/span&gt; r.lemma)));
+    }
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; p;
+})...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This is what the above code does:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Selects the number of records that the query will return&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Creates a series of promises that process only a portion of the total query, in 10,000 record blocks.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The key here is &lt;code&gt;LIMIT ?, ?&lt;/code&gt;. The first parameter is the starting position in the result set, and the second is the number of
+records that are returned.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Pushes the results into the target array.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Of course, for a query that returns nearly 150,000 records, this has to generate 15 queries. Interestingly enough, however, the
+return is nearly instantaneous, and doesn&amp;rsquo;t ever block the app itself, so everything remains responsive, and should the query ever
+return even &lt;em&gt;more&lt;/em&gt; rows, the app will still continue to function correctly.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;There is, of course, an upper limit to how much we can store in an array, of course. That said, JavaScript doesn&amp;rsquo;t do terribly
+badly here &amp;ndash; A sorted 150,000 array of words doesn&amp;rsquo;t take up much space at all. Right now the app is consuming around 20MiB of
+RAM using Xcode&amp;rsquo;s profiler, and that&amp;rsquo;s with a full DOM and a few views on screen. While this might be tight on devices with
+a ridiculously low amount of RAM, it&amp;rsquo;s more than workable on any device within the last three or so years.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
